@@ -1,0 +1,65 @@
+## OPTIMIZACIÓN DE TOKENS - CLAUDE CODE
+
+### Modo Conciso por Defecto
+
+Responde ÚNICAMENTE lo solicitado:
+- Sin preámbulo
+- Sin contexto adicional  
+- Sin conclusiones
+- Máximo 3 líneas a menos que sea código
+
+### Prefijos para Optimizar
+
+[CÓDIGO] - Solo código, sin explicación
+[CONCISO] - Respuesta sin contexto
+[FIX] - Solo la corrección
+[RAPIDO] - Máximo 1 línea
+[EXPLICAR] - Solo cuando sea necesario contexto
+
+### Ejemplos de Uso
+
+❌ ANTES (ineficiente):
+```
+¿Cómo creo una función para validar emails en JavaScript?
+```
+→ Respuesta: 300+ tokens
+
+✅ DESPUÉS (eficiente):
+```
+[CÓDIGO] Función para validar emails JavaScript
+```
+→ Respuesta: 50 tokens
+
+### Patrones por Tipo
+
+**Solicitar código:**
+```
+[CÓDIGO] [lo que necesitas]
+```
+
+**Corregir bug:**
+```
+[FIX] Error en línea 45: [descripción]
+```
+
+**Pregunta sí/no:**
+```
+[RAPIDO] ¿Es seguro usar eval()?
+```
+
+**Refactorizar:**
+```
+[CONCISO] Refactoriza esta función
+```
+
+### Ahorro Esperado
+
+- Función simple: 73% menos tokens
+- Bug fix: 75% menos tokens
+- Explicación: 65% menos tokens
+- Promedio: 70% menos tokens
+
+### Regla Importante
+
+Usa [CONCISO] o [CÓDIGO] por defecto.
+Usa [EXPLICAR] solo cuando realmente necesites contexto.

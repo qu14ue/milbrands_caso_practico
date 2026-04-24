@@ -1,0 +1,4670 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+  <head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+      Caso Milbrands — Análisis de Funnel & Growth Marketing
+    </title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+    <style>
+      
+        :root {
+          --black: #0a0a0a;
+          --white: #f5f2ee;
+          --cream: #ede9e3;
+          --accent: #c8a96e;
+          --accent-dark: #a07840;
+          --text: #1a1a1a;
+          --muted: #6b6560;
+          --border: #d4cfc8;
+          --success: #2d6a4f;
+          --danger: #9b2226;
+          --warn: #b45309;
+          --dark-charcoal: #1c1a18;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'DM Sans',sans-serif; background:var(--white); color:var(--text); font-size:15px; line-height:1.7; }
+      
+        /* ─── COVER ─── */
+        .cover {
+          min-height:100vh;
+          background:
+            radial-gradient(ellipse at 80% 20%, rgba(200,169,110,0.13) 0%, transparent 55%),
+            radial-gradient(ellipse at 10% 80%, rgba(200,169,110,0.07) 0%, transparent 50%),
+            linear-gradient(180deg,#0f0e0c 0%,#0a0a0a 100%);
+          display:flex; flex-direction:column; justify-content:space-between;
+          padding:60px 12.5%; position:relative; overflow:hidden;
+        }
+        .cover-top { display:flex; justify-content:space-between; align-items:flex-start; }
+        .logo-brand { font-family:'Syne',sans-serif; font-weight:800; font-size:18px; color:var(--accent); letter-spacing:.05em; text-transform:uppercase; }
+        .cover-date { font-family:'DM Sans',sans-serif; font-weight:300; font-size:13px; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; }
+        .cover-main { flex:1; display:flex; flex-direction:column; justify-content:center; padding:80px 0 40px; }
+        .cover-tag {
+          font-family:'DM Sans',sans-serif; font-size:12px; font-weight:500; letter-spacing:.2em;
+          text-transform:uppercase; color:var(--accent); margin-bottom:24px;
+          display:flex; align-items:center; gap:12px;
+        }
+        .cover-tag::before { content:''; display:block; width:32px; height:1px; background:var(--accent); }
+        .cover-title { font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(52px,8vw,90px); color:var(--white); line-height:1; letter-spacing:-.02em; margin-bottom:8px; }
+        .cover-title span { color:var(--accent); }
+        .cover-subtitle { font-family:'Syne',sans-serif; font-weight:400; font-size:clamp(18px,3vw,28px); color:rgba(245,242,238,.5); margin-top:16px; max-width:600px; line-height:1.4; }
+        .cover-bottom { display:flex; justify-content:space-between; align-items:flex-end; border-top:1px solid rgba(255,255,255,.1); padding-top:32px; }
+        .cover-for { font-size:13px; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; }
+        .cover-for strong { display:block; font-family:'Syne',sans-serif; font-size:20px; font-weight:700; color:var(--white); text-transform:none; letter-spacing:0; margin-top:4px; }
+        .cover-by { text-align:right; font-size:13px; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; }
+        .cover-by strong { display:block; font-family:'Syne',sans-serif; font-size:20px; font-weight:700; color:var(--accent); text-transform:none; letter-spacing:0; margin-top:4px; }
+      
+        /* ─── INDEX ─── */
+        .index-page { min-height:100vh; padding:80px 12.5%; background:var(--cream); }
+        .index-header { margin-bottom:60px; }
+        .section-label { font-size:11px; font-weight:500; letter-spacing:.25em; text-transform:uppercase; color:var(--accent); display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+        .section-label::before { content:''; width:24px; height:1px; background:var(--accent); }
+        .page-title { font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(36px,5vw,56px); line-height:1.05; letter-spacing:-.02em; color:var(--black); }
+        .index-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; }
+        .index-item { display:flex; align-items:flex-start; gap:20px; padding:24px 0; border-bottom:1px solid var(--border); }
+        .index-item:nth-child(odd) { padding-right:40px; border-right:1px solid var(--border); }
+        .index-item:nth-child(even) { padding-left:40px; }
+        .index-num { font-family:'Syne',sans-serif; font-weight:800; font-size:13px; color:var(--accent); min-width:28px; padding-top:2px; }
+        .index-text strong { font-family:'Syne',sans-serif; font-weight:700; font-size:15px; color:var(--black); display:block; margin-bottom:4px; }
+        .index-text span { font-size:13px; color:var(--muted); line-height:1.5; }
+      
+        /* ─── SECTIONS ─── */
+        .section { padding:80px 12.5%; }
+        .section:nth-child(odd) { background:var(--white); }
+        .section:nth-child(even) { background:var(--cream); }
+        .section-dark { background:var(--dark-charcoal) !important; color:var(--white); }
+        .section-medium { background:var(--dark-charcoal) !important; color:var(--white); }
+        .section-warn { background:#fdf6ec !important; }
+        .section-dark .page-title,.section-medium .page-title { color:var(--white); }
+        .section-dark .section-label,.section-medium .section-label { color:var(--accent); }
+        .section-dark p { color:rgba(245,242,238,.8); }
+        .section-medium p { color:rgba(245,242,238,.85); }
+        .section-header { margin-bottom:48px; max-width:700px; }
+        p { color:var(--text); margin-bottom:16px; max-width:720px; }
+        p:last-child { margin-bottom:0; }
+      
+        /* ─── CARDS ─── */
+        .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; margin-top:40px; }
+        .card { background:var(--white); border:1px solid var(--border); border-radius:2px; padding:28px; }
+        .section-dark .card { background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.1); }
+        .card-icon { font-size:24px; margin-bottom:16px; }
+        .card h3 { font-family:'Syne',sans-serif; font-weight:700; font-size:16px; margin-bottom:10px; color:var(--black); }
+        .section-dark .card h3 { color:var(--white); }
+        .card p { font-size:14px; color:var(--muted); margin:0; max-width:100%; }
+        .section-dark .card p { color:rgba(245,242,238,.6); }
+      
+        /* ─── PROBLEM LIST ─── */
+        .problem-list { display:flex; flex-direction:column; gap:0; margin-top:40px; border:1px solid var(--border); }
+        .problem-item { display:grid; grid-template-columns:48px 1fr; gap:0; border-bottom:1px solid var(--border); }
+        .problem-item:last-child { border-bottom:none; }
+        .problem-num { background:var(--black); color:var(--accent); font-family:'Syne',sans-serif; font-weight:800; font-size:13px; display:flex; align-items:center; justify-content:center; padding:24px 0; border-right:1px solid var(--border); }
+        .problem-content { padding:24px 28px; }
+        .problem-content h3 { font-family:'Syne',sans-serif; font-weight:700; font-size:16px; margin-bottom:8px; color:var(--black); }
+        .problem-content p { font-size:14px; color:var(--muted); margin:0; }
+      
+        /* ─── HIGHLIGHT BOX ─── */
+        .highlight-box { background:rgba(200,169,110,.08); border:1px solid rgba(200,169,110,.25); border-left:3px solid var(--accent); border-radius:2px; padding:20px 24px; margin-top:28px; }
+        .highlight-box p { font-size:14px; color:var(--text); margin:0; max-width:100%; }
+        .highlight-box strong { color:var(--accent-dark); }
+        .section-dark .highlight-box { background:rgba(200,169,110,.08); border-color:rgba(200,169,110,.2); border-left-color:var(--accent); }
+        .section-dark .highlight-box p { color:rgba(245,242,238,.85); }
+      
+        /* ─── DANGER BOX ─── */
+        .danger-box { background:rgba(155,34,38,.07); border:1px solid rgba(155,34,38,.2); border-left:3px solid var(--danger); border-radius:2px; padding:20px 24px; margin-top:20px; }
+        .danger-box p { font-size:14px; color:var(--text); margin:0; max-width:100%; }
+        .danger-box strong { color:var(--danger); }
+      
+        /* ─── FUNNEL CASCADE ─── */
+        .funnel-wrap { margin-top:40px; display:flex; gap:32px; align-items:flex-start; flex-wrap:wrap; }
+        .funnel-visual { flex:1; min-width:280px; }
+        .funnel-row { display:flex; flex-direction:column; align-items:stretch; }
+        .funnel-stage {
+          border:1px solid var(--border); border-radius:2px; padding:16px 20px;
+          display:flex; justify-content:space-between; align-items:center;
+          background:var(--white);
+        }
+        .funnel-stage.critical { border-color:rgba(155,34,38,.4); background:rgba(155,34,38,.04); }
+        .funnel-stage.dato-duro { border-color:rgba(45,106,79,.4); background:rgba(45,106,79,.04); }
+        .funnel-stage.calculado { border-color:rgba(200,169,110,.4); background:rgba(200,169,110,.06); }
+        .funnel-stage.implicito { border-color:rgba(155,34,38,.4); background:rgba(155,34,38,.04); }
+        .funnel-stage-name { font-family:'Syne',sans-serif; font-weight:700; font-size:14px; color:var(--black); display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+        .funnel-stage.critical .funnel-stage-name { color:var(--danger); }
+        .funnel-stage.dato-duro .funnel-stage-name { color:var(--success); }
+        .funnel-stage.implicito .funnel-stage-name { color:var(--danger); }
+        .funnel-stage.calculado .funnel-stage-name { color:var(--accent-dark); }
+        .funnel-stage-num { font-family:'Syne',sans-serif; font-weight:800; font-size:20px; color:var(--text); white-space:nowrap; }
+        .stage-badge { font-size:9px; letter-spacing:.12em; text-transform:uppercase; padding:2px 6px; border-radius:2px; font-weight:600; }
+        .stage-badge.bd { background:rgba(45,106,79,.15); color:var(--success); }
+        .stage-badge.bc { background:rgba(200,169,110,.2); color:var(--accent-dark); }
+        .stage-badge.bi { background:rgba(155,34,38,.12); color:var(--danger); }
+        .funnel-connector { display:flex; align-items:center; gap:12px; padding:8px 20px; }
+        .funnel-arrow-line { width:1px; height:24px; background:var(--border); margin:0 auto; }
+        .funnel-rate {
+          font-size:12px; font-weight:500; letter-spacing:.05em;
+          padding:3px 10px; border-radius:2px; margin:0 auto;
+          background:rgba(45,106,79,.1); color:var(--success);
+        }
+        .funnel-rate.bad { background:rgba(180,83,9,.1); color:var(--warn); }
+        .funnel-rate.critical { background:rgba(155,34,38,.12); color:var(--danger); }
+        .funnel-badge { font-size:11px; letter-spacing:.1em; text-transform:uppercase; padding:3px 8px; border-radius:2px; margin-left:8px; }
+        .badge-ok { background:rgba(45,106,79,.1); color:var(--success); }
+        .badge-bad { background:rgba(180,83,9,.1); color:var(--warn); }
+        .badge-critical { background:rgba(155,34,38,.12); color:var(--danger); }
+      
+        /* ─── DUAL FUNNEL ─── */
+        .dual-funnel { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:32px; }
+        .funnel-scenario { background:var(--cream); border:1px solid var(--border); border-radius:2px; overflow:hidden; display:flex; flex-direction:column; }
+        .scenario-header { padding:20px 24px 16px; border-bottom:1px solid var(--border); }
+        .scenario-tag { display:inline-flex; align-items:center; font-family:'Syne',sans-serif; font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; padding:4px 10px; border-radius:2px; margin-bottom:10px; }
+        .scenario-tag.prog { background:rgba(45,106,79,.12); color:var(--success); }
+        .scenario-tag.regr { background:rgba(200,169,110,.18); color:var(--accent-dark); }
+        .scenario-heading { font-family:'Syne',sans-serif; font-weight:800; font-size:16px; color:var(--black); margin-bottom:4px; line-height:1.2; }
+        .scenario-desc { font-size:13px; color:var(--muted); line-height:1.5; }
+        .scenario-funnel { padding:16px 20px; background:var(--white); flex:1; }
+        .scenario-funnel .funnel-stage { padding:12px 16px; }
+        .scenario-funnel .funnel-stage-name { font-size:13px; }
+        .scenario-funnel .funnel-stage-num { font-size:18px; }
+        .scenario-funnel .funnel-connector { padding:4px 16px; }
+        .scenario-bottlenecks { padding:16px 20px 20px; border-top:1px solid var(--border); }
+        .bottlenecks-title { font-family:'Syne',sans-serif; font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:12px; }
+        .bottleneck-item { display:flex; align-items:flex-start; gap:12px; padding:10px 0; border-bottom:1px solid var(--border); }
+        .bottleneck-item:last-child { border-bottom:none; padding-bottom:0; }
+        .bottleneck-val { font-family:'Syne',sans-serif; font-weight:800; font-size:20px; min-width:52px; line-height:1; padding-top:2px; }
+        .bottleneck-val.danger { color:var(--danger); }
+        .bottleneck-val.warn { color:var(--warn); }
+        .bottleneck-val.success { color:var(--success); }
+        .bottleneck-text strong { font-family:'Syne',sans-serif; font-size:13px; font-weight:700; color:var(--black); display:block; margin-bottom:2px; }
+        .bottleneck-text span { font-size:12px; color:var(--muted); line-height:1.5; }
+      
+        /* ─── FUNNEL CONFLICT CONCLUSION ─── */
+        .funnel-conflict { margin-top:24px; background:var(--dark-charcoal); border-radius:2px; padding:36px 40px; position:relative; overflow:hidden; }
+        .funnel-conflict::before { content:''; position:absolute; top:-50px; right:-50px; width:220px; height:220px; background:radial-gradient(circle,rgba(155,34,38,.12) 0%,transparent 70%); pointer-events:none; }
+        .conflict-label { font-family:'Syne',sans-serif; font-size:10px; font-weight:700; letter-spacing:.25em; text-transform:uppercase; color:var(--danger); margin-bottom:16px; display:flex; align-items:center; gap:10px; }
+        .conflict-label::before { content:''; width:20px; height:1px; background:var(--danger); flex-shrink:0; }
+        .conflict-heading { font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(18px,2vw,22px); color:var(--white); margin-bottom:14px; line-height:1.25; }
+        .conflict-body { font-size:14px; color:rgba(245,242,238,.68); line-height:1.78; max-width:720px; margin-bottom:12px; }
+        .conflict-body:last-child { margin-bottom:0; }
+        .conflict-body strong { color:rgba(245,242,238,.95); }
+      
+        .funnel-stats { flex:0 0 280px; display:flex; flex-direction:column; gap:12px; padding-top:8px; }
+        .stat-row { border:1px solid var(--border); border-radius:2px; padding:16px 20px; }
+        .stat-label { font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+        .stat-value { font-family:'Syne',sans-serif; font-weight:800; font-size:22px; color:var(--black); }
+        .stat-value.danger { color:var(--danger); }
+        .stat-value.warn { color:var(--warn); }
+        .stat-value.ok { color:var(--success); }
+        .stat-sub { font-size:12px; color:var(--muted); margin-top:2px; }
+      
+        /* ─── DATA TABLE ─── */
+        .data-table { width:100%; border-collapse:collapse; margin-top:32px; }
+        .data-table th { font-family:'Syne',sans-serif; font-size:11px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); padding:12px 16px; border-bottom:2px solid var(--border); text-align:left; background:var(--cream); }
+        .data-table td { font-size:14px; padding:14px 16px; border-bottom:1px solid var(--border); color:var(--text); }
+        .data-table tr:last-child td { border-bottom:none; }
+        .data-table .td-label { font-weight:500; color:var(--black); }
+        .data-table .td-val { font-family:'Syne',sans-serif; font-weight:700; color:var(--black); }
+        .data-table .td-conflict { color:var(--danger); font-weight:500; }
+        .data-table .td-ok { color:var(--success); }
+        .data-table .td-warn { color:var(--warn); font-weight:500; }
+        .data-table tr.row-alert td { background:rgba(155,34,38,.04); }
+      
+        /* ─── MATH BLOCK ─── */
+        .math-block { background:var(--black); border-radius:2px; padding:32px 36px; margin-top:28px; font-family:'DM Sans',monospace; font-size:14px; color:rgba(245,242,238,.7); line-height:2; }
+        .math-block .math-title { font-family:'Syne',sans-serif; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:16px; font-style:normal; display:block; }
+        .math-block .math-line { display:flex; gap:16px; align-items:baseline; }
+        .math-block .math-op { color:rgba(245,242,238,.3); min-width:20px; }
+        .math-block .math-val { color:var(--white); font-weight:500; }
+        .math-block .math-result { color:var(--accent); font-family:'Syne',sans-serif; font-weight:800; font-size:18px; }
+        .math-block .math-divider { border:none; border-top:1px solid rgba(255,255,255,.1); margin:12px 0; }
+        .math-block .math-note { font-size:12px; color:rgba(245,242,238,.4); margin-top:8px; display:block; }
+      
+        /* ─── UNKNOWN GRID ─── */
+        .unknown-section { margin-top:40px; }
+        .unknown-category { margin-bottom:32px; }
+        .unknown-cat-title { font-family:'Syne',sans-serif; font-weight:700; font-size:13px; letter-spacing:.15em; text-transform:uppercase; color:var(--accent); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+        .unknown-cat-title::after { content:''; flex:1; height:1px; background:rgba(200,169,110,.2); }
+        .unknown-items { display:flex; flex-direction:column; gap:0; border:1px solid var(--border); }
+        .unknown-item { padding:14px 20px; border-bottom:1px solid var(--border); font-size:14px; color:var(--text); display:flex; align-items:flex-start; gap:12px; }
+        .unknown-item:last-child { border-bottom:none; }
+        .unknown-item::before { content:'?'; font-family:'Syne',sans-serif; font-weight:800; font-size:12px; color:var(--warn); background:rgba(180,83,9,.1); border-radius:2px; padding:1px 6px; flex-shrink:0; margin-top:1px; }
+        .section-warn .unknown-items { background:rgba(255,255,255,.6); }
+      
+        /* ─── DISCLAIMER ─── */
+        .disclaimer { background:var(--dark-charcoal); border-radius:2px; padding:40px 48px; margin-top:40px; position:relative; overflow:hidden; }
+        .disclaimer::before { content:''; position:absolute; top:-60px; right:-60px; width:200px; height:200px; background:radial-gradient(circle,rgba(200,169,110,.08) 0%,transparent 70%); }
+        .disclaimer-label { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:16px; display:block; }
+        .disclaimer h3 { font-family:'Syne',sans-serif; font-weight:800; font-size:22px; color:var(--white); margin-bottom:16px; line-height:1.2; }
+        .disclaimer p { font-size:15px; color:rgba(245,242,238,.75); max-width:680px; margin-bottom:12px; }
+        .disclaimer p:last-child { margin-bottom:0; }
+        .disclaimer strong { color:var(--accent); }
+      
+        /* ─── SOLUTION FLOW ─── */
+        .solution-flow { margin-top:40px; display:grid; grid-template-columns:56px 1fr auto; border:1px solid var(--border); }
+        .sol-step { display:contents; }
+        .sol-num,.sol-content,.sol-tag { border-bottom:1px solid var(--border); }
+        .sol-step:last-child>.sol-num,.sol-step:last-child>.sol-content,.sol-step:last-child>.sol-tag { border-bottom:none; }
+        .sol-num { background:var(--dark-charcoal); color:var(--accent); font-family:'Syne',sans-serif; font-weight:800; font-size:14px; display:flex; align-items:center; justify-content:center; border-right:1px solid var(--border); }
+        .sol-content { padding:20px 24px; }
+        .sol-content h4 { font-family:'Syne',sans-serif; font-weight:700; font-size:15px; color:var(--black); margin-bottom:4px; }
+        .sol-content p { font-size:13px; color:var(--muted); margin:0; }
+        .sol-tag { display:flex; align-items:center; padding:0 20px; border-left:1px solid var(--border); }
+        .sol-badge { font-size:11px; font-weight:500; letter-spacing:.1em; text-transform:uppercase; padding:4px 10px; border-radius:2px; white-space:nowrap; }
+        .badge-adq { background:rgba(24,119,242,.1); color:#1877f2; }
+        .badge-creat { background:rgba(200,169,110,.15); color:var(--accent-dark); }
+        .badge-lp { background:rgba(45,106,79,.12); color:var(--success); }
+        .badge-lead { background:rgba(155,34,38,.1); color:var(--danger); }
+        .section-medium .sol-content h4 { color:var(--white); }
+        .section-medium .sol-content p { color:rgba(245,242,238,.65); }
+        .section-medium .sol-num { background:rgba(200,169,110,.15); }
+        .section-medium .solution-flow { border-color:rgba(255,255,255,.1); }
+        .section-medium .sol-num,.section-medium .sol-content,.section-medium .sol-tag { border-color:rgba(255,255,255,.08); }
+      
+        /* ─── TEST CARDS ─── */
+        .test-grid { display:flex; flex-direction:column; gap:20px; margin-top:40px; }
+        .test-card { border:1px solid var(--border); border-radius:2px; overflow:hidden; }
+        .test-header { display:grid; grid-template-columns:56px 1fr auto; border-bottom:1px solid var(--border); }
+        .test-num { background:var(--dark-charcoal); color:var(--accent); font-family:'Syne',sans-serif; font-weight:800; font-size:16px; display:flex; align-items:center; justify-content:center; padding:20px 0; }
+        .test-title-wrap { padding:20px 24px; }
+        .test-title { font-family:'Syne',sans-serif; font-weight:700; font-size:17px; color:var(--black); }
+        .test-subtitle { font-size:13px; color:var(--muted); margin-top:2px; }
+        .test-duration { display:flex; align-items:center; padding:0 24px; font-size:12px; color:var(--muted); white-space:nowrap; }
+        .test-body { display:grid; grid-template-columns:1fr 1fr 1fr; }
+        .test-cell { padding:20px 24px; border-right:1px solid var(--border); }
+        .test-cell:last-child { border-right:none; }
+        .test-cell-label { font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; }
+        .test-cell-text { font-size:13px; color:var(--text); line-height:1.6; }
+        .test-cell-text strong { color:var(--black); }
+      
+        /* ─── TEST CARDS IN DARK SECTION — light override ─── */
+        .section-dark .test-card { background:var(--white) !important; border-color:rgba(255,255,255,.15) !important; }
+        .section-dark .test-header { background:var(--cream) !important; border-color:var(--border) !important; }
+        .section-dark .test-title { color:var(--black) !important; }
+        .section-dark .test-subtitle { color:var(--muted) !important; }
+        .section-dark .test-duration { color:var(--muted) !important; }
+        .section-dark .test-body { background:var(--white) !important; }
+        .section-dark .test-cell { border-color:var(--border) !important; }
+        .section-dark .test-cell-text { color:var(--text) !important; }
+        .section-dark .test-cell-text strong { color:var(--black) !important; }
+      
+        /* ─── KPI TABLE ─── */
+        .kpi-levels { display:flex; flex-direction:column; gap:28px; margin-top:40px; }
+        .kpi-level { border:1px solid var(--border); border-radius:2px; overflow:hidden; }
+        .kpi-level-header { padding:16px 24px; background:var(--cream); border-bottom:1px solid var(--border); display:flex; align-items:center; gap:12px; }
+        .kpi-level-num { font-family:'Syne',sans-serif; font-weight:800; font-size:13px; color:var(--accent); background:rgba(200,169,110,.15); padding:4px 10px; border-radius:2px; }
+        .kpi-level-title { font-family:'Syne',sans-serif; font-weight:700; font-size:15px; color:var(--black); }
+        .kpi-level-sub { font-size:13px; color:var(--muted); }
+        .kpi-items { display:grid; grid-template-columns:repeat(3,1fr); }
+        .kpi-item { padding:18px 20px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); }
+        .kpi-item:nth-child(3n) { border-right:none; }
+        .kpi-item:nth-last-child(-n+3) { border-bottom:none; }
+        .kpi-name { font-family:'Syne',sans-serif; font-weight:700; font-size:14px; color:var(--black); margin-bottom:4px; }
+        .kpi-desc { font-size:12px; color:var(--muted); line-height:1.5; }
+      
+        .bench-table { width:100%; border-collapse:collapse; margin-top:40px; }
+        .bench-table th { font-family:'Syne',sans-serif; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); padding:12px 16px; border-bottom:2px solid var(--border); text-align:left; }
+        .bench-table td { font-size:13px; padding:14px 16px; border-bottom:1px solid var(--border); }
+        .bench-table tr:last-child td { border-bottom:none; }
+        .bench-table .b-metric { font-weight:500; color:var(--black); }
+        .bench-table .b-current { color:var(--danger); font-family:'Syne',sans-serif; font-weight:700; }
+        .bench-table .b-bench { color:var(--muted); }
+        .bench-table .b-target { color:var(--success); font-family:'Syne',sans-serif; font-weight:700; }
+      
+        /* ─── CREATIVE CARDS ─── */
+        .creative-grid { display:flex; flex-direction:column; gap:28px; margin-top:40px; }
+        .creative-card { border:1px solid var(--border); border-radius:2px; overflow:hidden; display:grid; grid-template-columns:1fr 1fr; }
+        .creative-left { background:var(--dark-charcoal); padding:32px; border-right:1px solid var(--border); }
+        .creative-tag { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+        .creative-name { font-family:'Syne',sans-serif; font-weight:800; font-size:22px; color:var(--white); margin-bottom:8px; line-height:1.1; }
+        .creative-funnel { font-size:12px; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:var(--cream); margin-bottom:20px; }
+        .creative-copy { background:var(--cream); border-radius:2px; padding:20px; font-size:14px; color:var(--text); line-height:1.7; font-style:italic; border-left:3px solid var(--accent); }
+        .creative-right { padding:32px; background:var(--cream); }
+        .creative-detail { margin-bottom:20px; }
+        .creative-detail-label { font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+        .creative-detail-val { font-size:14px; color:var(--text); }
+        .creative-why { margin-top:20px; padding-top:20px; border-top:1px solid var(--border); }
+        .creative-why-label { font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--accent-dark); margin-bottom:8px; }
+        .creative-why p { font-size:13px; color:var(--text); margin:0; }
+      
+        /* ─── TIMELINE ─── */
+        .timeline { margin-top:40px; display:grid; grid-template-columns:auto 1fr; border-top:1px solid var(--border); border-left:1px solid var(--border); }
+        .timeline-item { display:contents; }
+        .timeline-month { background:var(--black); color:var(--accent); font-family:'Syne',sans-serif; font-weight:800; font-size:14px; padding:24px 20px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; border-right:1px solid var(--border); border-bottom:1px solid var(--border); line-height:1.3; white-space:nowrap; }
+        .timeline-content { padding:24px 28px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); }
+        .timeline-content h4 { font-family:'Syne',sans-serif; font-weight:700; font-size:15px; color:var(--black); margin-bottom:10px; }
+        .timeline-tasks { display:flex; flex-wrap:wrap; gap:8px; }
+        .task-tag { font-size:12px; color:var(--muted); background:var(--cream); border:1px solid var(--border); padding:4px 10px; border-radius:2px; }
+        .task-tag.priority { background:rgba(200,169,110,.15); border-color:rgba(200,169,110,.3); color:var(--accent-dark); }
+      
+        /* ─── STACK ─── */
+        .stack-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:40px; }
+        .stack-item { border:1px solid rgba(255,255,255,.1); border-radius:2px; padding:28px; background:rgba(255,255,255,.04); }
+        .stack-name { font-family:'Syne',sans-serif; font-weight:700; font-size:17px; color:var(--accent); margin-bottom:4px; }
+        .stack-role { font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:rgba(245,242,238,.4); margin-bottom:16px; }
+        .stack-desc { font-size:14px; color:rgba(245,242,238,.7); margin:0 !important; }
+      
+        /* ─── INCONSISTENCY LABEL ─── */
+        .incons-label { font-family:'Syne',sans-serif; font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--danger); display:flex; align-items:center; gap:10px; margin-top:36px; margin-bottom:12px; }
+        .incons-label::before { content:''; width:20px; height:1px; background:var(--danger); flex-shrink:0; }
+        .incons-label span { color:var(--muted); font-weight:400; letter-spacing:.1em; }
+      
+        /* ─── INCONSISTENCY BLOCK (contenedor uniforme para las 3) ─── */
+        .incons-block { background:var(--white); border:1px solid var(--border); border-top:3px solid var(--danger); border-radius:2px; margin-top:12px; overflow:hidden; }
+        .incons-block > p { padding:24px 28px; margin:0; font-size:15px; color:var(--text); max-width:100%; line-height:1.7; }
+        .incons-block > p strong { color:var(--danger); }
+        .incons-block .data-table { margin-top:0; }
+        .incons-block .math-block { margin-top:0; border-radius:0; border-top:1px solid rgba(255,255,255,.08); }
+      
+        /* ─── CPC ANALYSIS ─── */
+        .cpc-analysis { background:var(--white); border:1px solid var(--border); border-top:3px solid var(--danger); border-radius:2px; padding:36px; margin-top:12px; }
+        .cpc-scenarios { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:24px; }
+        .cpc-scenario { background:var(--cream); border:1px solid var(--border); border-top:3px solid var(--border); border-radius:2px; padding:24px 20px; }
+        .cpc-scenario.imposible { border-top-color:var(--danger); background:rgba(155,34,38,.03); }
+        .cpc-scenario.illogic { border-top-color:var(--warn); background:rgba(180,83,9,.03); }
+        .cpc-scenario.conclusion { border-top-color:var(--accent); background:rgba(200,169,110,.06); }
+        .cpc-s-label { font-size:10px; letter-spacing:.2em; text-transform:uppercase; margin-bottom:12px; font-weight:500; }
+        .cpc-scenario.imposible .cpc-s-label { color:var(--danger); }
+        .cpc-scenario.illogic .cpc-s-label { color:var(--warn); }
+        .cpc-scenario.conclusion .cpc-s-label { color:var(--accent-dark); }
+        .cpc-s-title { font-family:'Syne',sans-serif; font-weight:800; font-size:15px; color:var(--black); margin-bottom:16px; line-height:1.2; }
+        .cpc-s-math { display:flex; flex-direction:column; gap:6px; margin-bottom:14px; }
+        .cpc-s-line { font-size:12px; color:var(--muted); font-family:'DM Sans',monospace; }
+        .cpc-s-line strong { color:var(--text); }
+        .cpc-s-result { font-size:13px; font-weight:500; padding:8px 12px; border-radius:2px; margin-top:4px; }
+        .cpc-scenario.imposible .cpc-s-result { background:rgba(155,34,38,.08); color:var(--danger); }
+        .cpc-scenario.illogic .cpc-s-result { background:rgba(180,83,9,.08); color:var(--warn); }
+        .cpc-scenario.conclusion .cpc-s-result { background:rgba(200,169,110,.18); color:var(--accent-dark); }
+        .cpc-s-verdict { font-size:12px; color:var(--muted); line-height:1.6; margin-top:10px; }
+        .cpc-insight { background:rgba(200,169,110,.08); border:1px solid rgba(200,169,110,.25); border-left:3px solid var(--accent); border-radius:2px; padding:16px 20px; }
+        .cpc-insight p { font-size:13px; color:var(--text); margin:0; max-width:100%; line-height:1.6; }
+        .cpc-insight strong { color:var(--accent-dark); }
+        @media(max-width:700px) { .cpc-scenarios { grid-template-columns:1fr; } }
+      
+        /* ─── BIG NUMBER ─── */
+        .big-numbers { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:2px; overflow:hidden; margin-top:40px; }
+        .big-num-item { background:var(--white); padding:32px 24px; text-align:center; }
+        .big-num-value { font-family:'Syne',sans-serif; font-weight:800; font-size:48px; color:var(--black); line-height:1; margin-bottom:8px; }
+        .big-num-value.accent { color:var(--accent); }
+        .big-num-value.danger { color:var(--danger); }
+        .big-num-value.success { color:var(--success); }
+        .big-num-label { font-size:13px; color:var(--muted); }
+        .section-dark .big-num-item { background:#1a1916; }
+        .section-dark .big-num-value { color:var(--white); }
+        .section-dark .big-num-label { color:rgba(245,242,238,.5); }
+      
+        /* ─── AUDIT GRID (sección conclusiones) ─── */
+        .conclusions-findings { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:36px; }
+        .finding-card { background:var(--white); border:1px solid var(--border); border-top:3px solid var(--accent); border-radius:2px; padding:20px 22px; }
+        .finding-num { font-family:'Syne',sans-serif; font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--accent-dark); margin-bottom:10px; }
+        .finding-text { font-size:14px; color:var(--text); line-height:1.65; }
+        .finding-text strong { color:var(--black); }
+      
+        .unknowns-list { margin-top:36px; display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--border); border-radius:2px; overflow:hidden; }
+        .unknown-row { display:flex; align-items:flex-start; gap:16px; padding:16px 20px; border-bottom:1px solid var(--border); border-right:1px solid var(--border); background:var(--white); }
+        .unknown-row:nth-child(even) { border-right:none; }
+        .unknown-row:nth-last-child(-n+2) { border-bottom:none; }
+        .unknown-icon { font-size:16px; flex-shrink:0; padding-top:1px; }
+        .unknown-row-text strong { font-family:'Syne',sans-serif; font-size:13px; font-weight:700; color:var(--black); display:block; margin-bottom:3px; }
+        .unknown-row-text span { font-size:12px; color:var(--muted); line-height:1.5; }
+      
+        /* .audit-grid se reemplazó por .audit-slider */
+        .audit-slider { margin-top:36px; position:relative; }
+        .audit-slider-overflow { overflow:hidden; border-radius:2px; }
+        .audit-track { display:flex; align-items:stretch; transition:transform .4s cubic-bezier(.4,0,.2,1); will-change:transform; }
+        .audit-slide { flex:0 0 calc(100% / 3); min-width:calc(100% / 3); box-sizing:border-box; padding:0 8px; }
+        .audit-slide .audit-category { height:100%; border-radius:2px; }
+        .audit-nav { display:flex; align-items:center; justify-content:space-between; margin-top:14px; gap:16px; }
+        .audit-nav-btn { display:flex; align-items:center; justify-content:center; width:38px; height:38px; background:var(--white); border:1px solid var(--border); border-radius:2px; cursor:pointer; color:var(--text); transition:background .15s, border-color .15s; flex-shrink:0; }
+        .audit-nav-btn:hover:not(:disabled) { background:var(--cream); border-color:var(--muted); }
+        .audit-nav-btn:disabled { opacity:.3; cursor:default; }
+        .audit-nav-center { display:flex; align-items:center; gap:16px; flex:1; justify-content:center; }
+        .audit-dots { display:flex; gap:6px; align-items:center; }
+        .audit-dot { height:3px; width:20px; background:var(--border); border-radius:2px; cursor:pointer; transition:background .25s, width .25s; }
+        .audit-dot.active { background:var(--accent); width:32px; }
+        .audit-counter { font-family:'Syne',sans-serif; font-size:11px; font-weight:700; letter-spacing:.15em; color:var(--muted); white-space:nowrap; }
+        .audit-category { background:var(--white); border:1px solid var(--border); border-radius:2px; overflow:hidden; }
+        .audit-cat-header { padding:14px 18px; background:var(--cream); border-bottom:1px solid var(--border); }
+        .audit-cat-label { font-family:'Syne',sans-serif; font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); }
+        .audit-cat-title { font-family:'Syne',sans-serif; font-weight:700; font-size:14px; color:var(--black); margin-top:4px; }
+        .audit-items { padding:16px 18px 20px; display:flex; flex-direction:column; gap:0; }
+        .audit-item { display:block; padding:12px 0; border-bottom:1px solid var(--black); font-size:13px; color:var(--muted); line-height:1.6; }
+        .audit-item:last-child { border-bottom:none; padding-bottom:0; }
+        .audit-item strong { color:var(--black); font-weight:600; display:block; margin-bottom:4px; }
+      
+        .conclusions-final-box { margin-top:32px; background:var(--dark-charcoal); border-radius:2px; padding:40px 48px; position:relative; overflow:hidden; }
+        .conclusions-final-box::before { content:''; position:absolute; bottom:-60px; right:-60px; width:280px; height:280px; background:radial-gradient(circle,rgba(200,169,110,.07) 0%,transparent 70%); pointer-events:none; }
+        .conclusions-final-box::after { content:''; position:absolute; top:-40px; left:-40px; width:180px; height:180px; background:radial-gradient(circle,rgba(155,34,38,.06) 0%,transparent 70%); pointer-events:none; }
+        .cfb-inner { position:relative; z-index:1; max-width:760px; }
+        .cfb-label { font-family:'Syne',sans-serif; font-size:10px; font-weight:700; letter-spacing:.25em; text-transform:uppercase; color:var(--accent); margin-bottom:18px; display:flex; align-items:center; gap:12px; }
+        .cfb-label::before { content:''; width:32px; height:1px; background:var(--accent); flex-shrink:0; }
+        .cfb-heading { font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(20px,2.5vw,28px); color:var(--white); line-height:1.2; margin-bottom:20px; }
+        .cfb-body { font-size:15px; color:rgba(245,242,238,.72); line-height:1.8; margin-bottom:14px; }
+        .cfb-body:last-child { margin-bottom:0; }
+        .cfb-body strong { color:var(--white); }
+        .cfb-body em { color:var(--accent); font-style:normal; }
+      
+        /* ─── SECTION BRIDGE ─── */
+        .section-bridge { background:var(--dark-charcoal); padding:72px 12.5%; position:relative; overflow:hidden; border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06); }
+        .section-bridge::before { content:''; position:absolute; top:0; left:0; right:0; bottom:0; background:radial-gradient(ellipse at 85% 50%, rgba(200,169,110,.07) 0%, transparent 60%); pointer-events:none; }
+        .bridge-inner { max-width:720px; position:relative; z-index:1; }
+        .bridge-tag { display:flex; align-items:center; gap:12px; font-family:'Syne',sans-serif; font-size:10px; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--accent); margin-bottom:28px; }
+        .bridge-tag::before { content:''; width:40px; height:1px; background:var(--accent); flex-shrink:0; }
+        .bridge-tag::after { content:''; flex:1; max-width:160px; height:1px; background:rgba(200,169,110,.2); }
+        .bridge-heading { font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(22px,3vw,32px); color:var(--white); line-height:1.2; letter-spacing:-.01em; margin-bottom:24px; }
+        .bridge-body { font-size:15px; color:rgba(245,242,238,.68); line-height:1.8; margin-bottom:14px; max-width:640px; }
+        .bridge-body strong { color:rgba(245,242,238,.95); }
+        .bridge-body em { color:var(--accent); font-style:normal; }
+        .bridge-divider { width:100%; height:1px; background:rgba(255,255,255,.08); margin:28px 0; }
+        .bridge-footer { font-family:'Syne',sans-serif; font-size:13px; color:rgba(200,169,110,.65); font-style:italic; line-height:1.6; }
+      
+        /* ─── CTA ─── */
+        .cta-section { min-height:60vh; background:var(--black); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:80px 60px; position:relative; overflow:hidden; }
+        .cta-section::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:600px; height:600px; background:radial-gradient(circle,rgba(200,169,110,.08) 0%,transparent 70%); }
+        .cta-title { font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(28px,5vw,52px); color:var(--white); line-height:1.1; margin-bottom:20px; letter-spacing:-.02em; position:relative; }
+        .cta-title span { color:var(--accent); }
+        .cta-sub { font-size:18px; color:rgba(245,242,238,.6); max-width:540px; margin-bottom:48px; position:relative; line-height:1.6; }
+        .cta-items { display:flex; gap:32px; flex-wrap:wrap; justify-content:center; position:relative; }
+        .cta-item { display:flex; align-items:center; gap:10px; font-size:14px; color:rgba(245,242,238,.7); }
+        .cta-item::before { content:''; width:8px; height:8px; background:var(--accent); border-radius:50%; flex-shrink:0; }
+      
+        /* ─── RESPONSIVE ─── */
+        
+        @media(max-width:900px) {
+          .cover,.index-page,.section,.cta-section { padding-left:6%; padding-right:6%; }
+          .index-grid { grid-template-columns:1fr; }
+          .index-item:nth-child(odd) { border-right:none; padding-right:0; }
+          .index-item:nth-child(even) { padding-left:0; }
+          .funnel-wrap { flex-direction:column; }
+          .funnel-stats { flex:none; width:100%; }
+          .dual-funnel { grid-template-columns:1fr; }
+          .funnel-conflict { padding:24px 20px; }
+          .scenario-funnel .funnel-stage-num { font-size:16px; }
+          .conclusions-findings { grid-template-columns:1fr; }
+          .unknowns-list { grid-template-columns:1fr; }
+          .unknown-row { border-right:none; }
+          .unknown-row:nth-last-child(-n+2) { border-bottom:1px solid var(--border); }
+          .unknown-row:last-child { border-bottom:none; }
+          .audit-slide { flex:0 0 calc(100% / 2); min-width:calc(100% / 2); }
+          .conclusions-final-box { padding:28px 24px; }
+          .test-body { grid-template-columns:1fr; }
+          .test-cell { border-right:none; border-bottom:1px solid var(--border); }
+          .test-cell:last-child { border-bottom:none; }
+          .kpi-items { grid-template-columns:1fr 1fr; }
+          .creative-card { grid-template-columns:1fr; }
+          .creative-left { border-right:none; border-bottom:1px solid var(--border); }
+          .big-numbers { grid-template-columns:1fr; }
+          .bench-table th:nth-child(3), .bench-table td:nth-child(3) { display:none; }
+          .solution-flow { grid-template-columns: 1fr; }
+          .sol-step { display: grid; grid-template-columns: 48px 1fr; grid-template-areas: "num content" "num tag"; border-bottom: 1px solid var(--border); }
+          .sol-step:last-child { border-bottom: none; }
+          .sol-num { grid-area: num; border-right: 1px solid var(--border); border-bottom: none; }
+          .sol-content { grid-area: content; border-bottom: none; padding: 16px 18px; }
+          .sol-tag { grid-area: tag; border-left: none; border-top: 1px solid var(--border); padding: 10px 18px; justify-content: flex-start; }
+          .data-table,
+          .data-table tbody       { display: block; }
+          .data-table thead       { display: none; }
+          .data-table tbody tr {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            grid-template-areas:
+              "label val estado"
+              "verif verif verif";
+            border-bottom: 1px solid var(--border);
+          }
+          .data-table tbody tr:last-child { border-bottom: none; }
+          .data-table tbody td              { border-bottom: none; }
+          .data-table tbody td:nth-child(1) { grid-area: label; }
+          .data-table tbody td:nth-child(2) { grid-area: val;    padding-left: 6px; }
+          .data-table tbody td:nth-child(3) { grid-area: verif;  padding-top: 0; }
+          .data-table tbody td:nth-child(4) { grid-area: estado; }
+          .big-num-value { font-size:32px;}
+        }
+        @media(max-width:600px) {
+          .cover { padding:40px 5%; }
+          .index-page { padding:48px 5%; }
+          .section { padding:48px 5%; }
+          .cta-section { padding:48px 5%; }
+          .test-header { grid-template-columns:48px 1fr; }
+          .test-duration { display:none; }
+          .kpi-items { grid-template-columns:1fr; }
+          .kpi-item:nth-child(3n) { border-right:none; }
+          .stack-grid { grid-template-columns:1fr; }
+          .section-label { font-size:10px; }
+          .math-block { padding:24px; }
+          .disclaimer { padding:28px 24px; }
+          .section-bridge { padding:48px 5%; }
+          .bridge-heading { font-size:22px; }
+          .audit-slide { flex:0 0 100%; min-width:100%; padding:0; }
+          .creative-card { grid-template-columns:1fr; }
+          .creative-left { border-right:none; border-bottom:1px solid var(--border); }
+          .cta-title { font-size:clamp(24px,5vw,40px); }
+          .cta-sub { font-size:14px; }
+          .page-title{font-size:32px;}
+          .cover-title { font-size:clamp(38px,8vw,90px);}
+          /* html, body {overflow-x: hidden; max-width: 100%;} */
+          /* { box-sizing: border-box; max-width: 100%;} */
+          /** { outline: 1px solid red; } */
+          /* data-table { display: block; overflow-x: auto; } */
+          .cta-section::before {width: 100vw; height: 100vw;}
+          .math-block { padding: 20px 16px; font-size: 13px; }
+          .math-block .math-line { flex-wrap: wrap; gap: 4px 10px; align-items: baseline; margin-bottom: 4px;}
+          .math-block .math-op { min-width: 14px; flex-shrink: 0;}
+          .math-block .math-result { font-size: 15px; width: 100%; margin-top: 2px; padding-left: 24px;}
+          .big-num-value { font-size:32px;}
+          .bottleneck-val { font-size:16px;}
+
+
+        }
+    </style>
+
+  </head>
+
+  <body>
+
+    <!-- ══════════════════════════════════════
+     COVER
+══════════════════════════════════════ -->
+
+    <div class="cover">
+
+      <div class="cover-top">
+
+        <div class="logo-brand">
+          Growth Marketing
+        </div>
+
+        <div class="cover-date">
+          Abril 2026
+        </div>
+
+      </div>
+
+      <div class="cover-main">
+
+        <div class="cover-tag">
+          Caso práctico · Especialista de Growth Marketing
+        </div>
+
+        <h1 class="cover-title">
+          Caso
+          <br>
+          <span>
+            Milbrands
+          </span>
+        </h1>
+
+        <p class="cover-subtitle">
+          Diagnóstico de funnel, propuesta de optimización y plan de acción
+        </p>
+
+      </div>
+
+      <div class="cover-bottom">
+
+        <div class="cover-for">
+
+          Empresa analizada
+
+          <strong>
+            Milbrands®
+          </strong>
+
+        </div>
+
+        <div class="cover-by">
+
+          Análisis por
+
+          <strong>
+            Enrique Diaz
+          </strong>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════
+     ÍNDICE
+══════════════════════════════════════ -->
+
+    <div class="index-page">
+
+      <div class="index-header">
+
+        <div class="section-label">
+          Contenido
+        </div>
+
+        <h1 class="page-title">
+          Índice
+        </h1>
+
+      </div>
+
+      <div class="index-grid">
+
+        <div class="index-item">
+
+          <div class="index-num">
+            01
+          </div>
+
+          <div class="index-text">
+            <strong>
+              El negocio
+            </strong>
+            <span>
+              Milbrands: quiénes son, qué venden y a quién
+            </span>
+          </div>
+
+        </div>
+
+        <div class="index-item">
+
+          <div class="index-num">
+            02
+          </div>
+
+          <div class="index-text">
+            <strong>
+              El funnel actual
+            </strong>
+            <span>
+              Los números declarados y lo que realmente dicen
+            </span>
+          </div>
+
+        </div>
+
+        <div class="index-item">
+
+          <div class="index-num">
+            03
+          </div>
+
+          <div class="index-text">
+            <strong>
+              Antes de proponer
+            </strong>
+            <span>
+              Todo lo que no sé — por qué debo auditar primero
+            </span>
+          </div>
+
+        </div>
+
+        <div class="index-item">
+
+          <div class="index-num">
+            04
+          </div>
+
+          <div class="index-text">
+            <strong>
+              Diagnóstico del Funnel
+            </strong>
+            <span>
+              Las inconsistencias que están afectando el rendimiento
+            </span>
+          </div>
+
+        </div>
+
+        <div class="index-item">
+
+          <div class="index-num">
+            05
+          </div>
+
+          <div class="index-text">
+            <strong>
+              Las hipótesis
+            </strong>
+            <span>
+              Qué está pasando? Qué razones lo explican
+            </span>
+          </div>
+
+        </div>
+
+        <div class="index-item">
+
+          <div class="index-num">
+            06
+          </div>
+
+          <div class="index-text">
+            <strong>
+              Propuesta de optimización
+            </strong>
+            <span>
+              Qué cambiaría en adquisición, creativos, landing y calificación de leads
+            </span>
+          </div>
+
+        </div>
+
+        <div class="index-item">
+
+          <div class="index-num">
+            07
+          </div>
+
+          <div class="index-text">
+            <strong>
+              Plan de testeo
+            </strong>
+            <span>
+              5 experimentos concretos con KPIs definidos
+            </span>
+          </div>
+
+        </div>
+
+        <div class="index-item">
+
+          <div class="index-num">
+            08
+          </div>
+
+          <div class="index-text">
+            <strong>
+              KPIs y benchmarks
+            </strong>
+            <span>
+              Las métricas que importan y los números saludables
+            </span>
+          </div>
+
+        </div>
+
+        <div class="index-item">
+
+          <div class="index-num">
+            09
+          </div>
+
+          <div class="index-text">
+            <strong>
+              Calidad de leads
+            </strong>
+            <span>
+              Cómo reducir el 45% de leads que nunca van a comprar
+            </span>
+          </div>
+
+        </div>
+
+        <div class="index-item">
+
+          <div class="index-num">
+            10
+          </div>
+
+          <div class="index-text">
+            <strong>
+              Experimentación creativa
+            </strong>
+            <span>
+              3 ángulos de anuncios con lógica detrás
+            </span>
+          </div>
+
+        </div>
+
+        <div class="index-item">
+
+          <div class="index-num">
+            11
+          </div>
+
+          <div class="index-text">
+            <strong>
+              Conclusiones finales
+            </strong>
+            <span>
+              Diagnóstico, incógnitas y el único primer paso posible
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════
+     01 — EL NEGOCIO
+══════════════════════════════════════ -->
+
+    <div class="section section-dark">
+
+      <div class="section-header">
+
+        <div class="section-label">
+          01
+        </div>
+
+        <h2 class="page-title">
+          El
+          <br>
+          negocio
+        </h2>
+
+      </div>
+
+      <p>
+        Milbrands es una
+        <strong style="color:var(--accent)">
+          agencia y consultora especializada en eCommerce growth
+        </strong>
+        . No venden un producto — venden transformación de negocio. Su promesa es convertirse en socios estratégicos de empresas que quieren crecer en canales digitales: Mercado Libre, marketplaces, ecommerce propio y redes sociales.
+      </p>
+
+      <p>
+        Esto importa para entender el funnel: no estamos ante un negocio de compra por impulso. Estamos ante una compra B2B de alto ticket, alta consideración y ciclo de decisión largo. El comprador ideal es un dueño de empresa o gerente que necesita entender el valor antes de comprometerse.
+      </p>
+
+      <div class="cards">
+
+        <div class="card">
+
+          <div class="card-icon">
+            🏆
+          </div>
+
+          <h3>
+            Reconocimiento ELITE
+          </h3>
+
+          <p>
+            Mercado Libre los eligió como la mejor consultora de eCommerce de Argentina — un sello que ningún competidor puede replicar y que es su mayor diferencial competitivo.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <div class="card-icon">
+            📊
+          </div>
+
+          <h3>
+            Escala y tracción
+          </h3>
+
+          <p>
+            650+ clientes activos, 600+ vendedores acompañados en un año, 250+ Marketplace Managers capacitados. No es una consultora boutique — tiene volumen real.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <div class="card-icon">
+            🎓
+          </div>
+
+          <h3>
+            Tres líneas de negocio
+          </h3>
+
+          <p>
+            Consultoría estratégica (alto ticket), agencia de performance (Meta, Google, TikTok, ML) y academia (Growth Bootcamp, cursos certificados con U. San Andrés).
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <div class="card-icon">
+            👤
+          </div>
+
+          <h3>
+            Founder: Mariano Sirena
+          </h3>
+
+          <p>
+            25+ años en el mundo digital. Host del podcast "Detrás del Algoritmo". Speaker en eCommerce Day. La cara visible y el principal activo de autoridad de la marca.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="highlight-box" style="margin-top:36px;">
+
+        <p>
+          El servicio que vende Milbrands requiere que el lead
+          <strong>
+            entienda qué es el ecommerce growth consulting
+          </strong>
+          antes de querer comprarlo. Un formulario de Meta en 10 segundos no puede hacer ese trabajo. Esa brecha entre la velocidad de captura y el tiempo de consideración real es el origen de muchos problemas del funnel.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════
+     02 — EL FUNNEL ACTUAL
+══════════════════════════════════════ -->
+
+    <div class="section">
+
+      <div class="section-header">
+
+        <div class="section-label">
+          02
+        </div>
+
+        <h2 class="page-title">
+          El funnel
+          <br>
+          actual
+        </h2>
+
+      </div>
+
+      <p>
+        Antes de sacar cualquier conclusión, tengo que entender lo que dicen los datos — y lo que no dicen. El funnel presentado tiene
+        <strong>
+          tres inconsistencias matemáticas significativas
+        </strong>
+        que, en un contexto real, me impedirían tomar cualquier decisión sin antes sentarme con el equipo de Milbrands a auditarlas:
+      </p>
+
+      <div class="highlight-box" style="margin-top:20px; margin-bottom:8px;">
+
+        <p>
+          <strong>
+            #1 — Tráfico, CVR y leads no cierran entre sí:
+          </strong>
+          15.500 usuarios × 3% CVR = 465 leads, no 800. Hay un gap de 335 leads sin origen explicado o la tasa declarada es incorrecta.
+        </p>
+
+        <p style="margin-top:10px;">
+          <strong>
+            #2 — El cascade del funnel no produce las ventas declaradas:
+          </strong>
+          aplicando los porcentajes en cadena (55% × 80% × 20% × 5%) sobre 800 leads, el resultado es ~3–4 ventas, no 20.
+        </p>
+
+        <p style="margin-top:10px;">
+          <strong>
+            #3 — El CPC de Meta vs. Google es incompatible con el tráfico declarado:
+          </strong>
+          con $3.500 ARS por clic en Meta, el presupuesto total solo alcanzaría para 4.143 usuarios — no 15.500.
+        </p>
+
+      </div>
+
+      <div class="incons-label">
+        Inconsistencia #1
+        <span>
+          — CVR declarada vs. tráfico vs. leads generados
+        </span>
+      </div>
+
+      <div class="incons-block">
+
+        <table class="data-table">
+
+          <thead>
+
+            <tr>
+              <th>
+                Dato declarado
+              </th>
+              <th>
+                Valor
+              </th>
+              <th>
+                Verificación
+              </th>
+              <th>
+                Estado
+              </th>
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td class="td-label">
+                Inversión mensual
+              </td>
+              <td class="td-val">
+                USD 10.000
+              </td>
+              <td>
+                Dato duro — tomado como verdad
+              </td>
+              <td class="td-ok">
+                ✓ Aceptado
+              </td>
+            </tr>
+
+            <tr>
+              <td class="td-label">
+                CPC Meta
+              </td>
+              <td class="td-val">
+                $3.500 ARS
+              </td>
+              <td>
+                9,6x más caro que Google → distribución de budget imposible de verificar sin el desglose real
+              </td>
+              <td class="td-warn">
+                ⚠ Revisar
+              </td>
+            </tr>
+
+            <tr>
+              <td class="td-label">
+                CPC Google
+              </td>
+              <td class="td-val">
+                $365 ARS
+              </td>
+              <td>
+                Muy bajo para B2B consultivo — posiblemente promedio que incluye Display/PMax de bajo valor
+              </td>
+              <td class="td-warn">
+                ⚠ Revisar
+              </td>
+            </tr>
+
+            <tr>
+              <td class="td-label">
+                Tráfico mensual
+              </td>
+              <td class="td-val">
+                15.500 usuarios
+              </td>
+              <td>
+                ¿Sesiones web (GA4) o interacciones con forms nativos de plataforma? La fuente no está definida
+              </td>
+              <td class="td-warn">
+                ⚠ Ambiguo
+              </td>
+            </tr>
+
+            <tr class="row-alert">
+              <td class="td-label">
+                CVR a lead declarada
+              </td>
+              <td class="td-val">
+                3%
+              </td>
+              <td>
+                15.500 × 3% = 465 leads ≠ 800 leads declarados. La CVR real es 5,16%
+              </td>
+              <td class="td-conflict">
+                ✗ No cierra
+              </td>
+            </tr>
+
+            <tr class="row-alert">
+              <td class="td-label">
+                Leads declarados
+              </td>
+              <td class="td-val">
+                800
+              </td>
+              <td>
+                Para obtener 800 leads al 3% se necesitarían 26.667 visitantes, no 15.500
+              </td>
+              <td class="td-conflict">
+                ✗ No cierra
+              </td>
+            </tr>
+
+            <tr>
+              <td class="td-label">
+                % leads calificados
+              </td>
+              <td class="td-val">
+                55%
+              </td>
+              <td>
+                440 calificados de 800 — criterio de calificación no definido
+              </td>
+              <td class="td-warn">
+                ⚠ Sin criterio
+              </td>
+            </tr>
+
+            <tr>
+              <td class="td-label">
+                % leads contactados
+              </td>
+              <td class="td-val">
+                80%
+              </td>
+              <td>
+                ¿De calificados o del total? Asumimos de calificados: 352 contactados
+              </td>
+              <td class="td-warn">
+                ⚠ Ambiguo
+              </td>
+            </tr>
+
+            <tr>
+              <td class="td-label">
+                Show rate
+              </td>
+              <td class="td-val">
+                20%
+              </td>
+              <td>
+                70 reuniones sobre 352 contactados — número muy bajo, benchmark es 40-60%
+              </td>
+              <td class="td-conflict">
+                ✗ Crítico
+              </td>
+            </tr>
+
+            <tr class="row-alert">
+              <td class="td-label">
+                Tasa de cierre
+              </td>
+              <td class="td-val">
+                5%
+              </td>
+              <td>
+                Con el cascade: 70 reuniones × 5% = 3,5 ventas. El caso declara 20. El modelo no cierra.
+              </td>
+              <td class="td-conflict">
+                ✗ No cierra
+              </td>
+            </tr>
+
+            <tr>
+              <td class="td-label">
+                Ventas totales
+              </td>
+              <td class="td-val">
+                20 clientes
+              </td>
+              <td>
+                Dato duro — tomado como verdad
+              </td>
+              <td class="td-ok">
+                ✓ Aceptado
+              </td>
+            </tr>
+
+            <tr>
+              <td class="td-label">
+                Ticket promedio
+              </td>
+              <td class="td-val">
+                $1.200.000 ARS
+              </td>
+              <td>
+                ¿Pago único o retainer mensual? El LTV cambia radicalmente según la respuesta
+              </td>
+              <td class="td-warn">
+                ⚠ Sin dato
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+      <!-- /incons-block #1 -->
+
+      <div class="incons-label">
+        Inconsistencia #2
+        <span>
+          — El cascade del funnel no produce las ventas declaradas
+        </span>
+      </div>
+
+      <div class="incons-block">
+
+        <p>
+          <strong>
+            El cascade secuencial con los porcentajes dados produce 3–4 ventas, no 20.
+          </strong>
+          Para que el resultado sea 20 ventas con estos porcentajes, el funnel debería haber procesado ~4.545 leads — y el tráfico necesario sería de 151.500 usuarios al 3% de CVR, o 15.500 usuarios con una CVR real del 29,3%. Este gap no es un redondeo — tenemos una inconsistencia que debo auditar ya que un dato incorrecto en esta etapa del análisis me modifica completamente el resultado .
+        </p>
+
+        <div class="math-block">
+
+          <span class="math-title">
+            Cálculo Regresivo — asumiendo 20 ventas como dato duro
+          </span>
+
+          <div class="math-line">
+            <span class="math-op">
+              =
+            </span>
+            <span>
+              20 ventas
+            </span>
+            <span class="math-op">
+              ÷
+            </span>
+            <span class="math-val">
+              5% cierre
+            </span>
+            <span class="math-op">
+              =
+            </span>
+            <span class="math-val">
+              400 reuniones
+            </span>
+          </div>
+
+          <div class="math-line">
+            <span class="math-op">
+              =
+            </span>
+            <span>
+              400 reuniones
+            </span>
+            <span class="math-op">
+              ÷
+            </span>
+            <span class="math-val">
+              20% show rate
+            </span>
+            <span class="math-op">
+              =
+            </span>
+            <span class="math-val">
+              2.000 contactados
+            </span>
+          </div>
+
+          <div class="math-line">
+            <span class="math-op">
+              =
+            </span>
+            <span>
+              2.000 contactados
+            </span>
+            <span class="math-op">
+              ÷
+            </span>
+            <span class="math-val">
+              80% contactados
+            </span>
+            <span class="math-op">
+              =
+            </span>
+            <span class="math-val">
+              2.500 calificados
+            </span>
+          </div>
+
+          <div class="math-line">
+            <span class="math-op">
+              =
+            </span>
+            <span>
+              2.500 calificados
+            </span>
+            <span class="math-op">
+              ÷
+            </span>
+            <span class="math-val">
+              55% calificación
+            </span>
+            <span class="math-op">
+              =
+            </span>
+            <span class="math-val">
+              4.545 leads totales
+            </span>
+          </div>
+
+          <hr class="math-divider">
+
+          <div class="math-line">
+            <span class="math-op">
+              →
+            </span>
+            <span>
+              Con 15.500 visitantes web y 4.545 leads:
+            </span>
+            <span class="math-result">
+              CVR real = 29,3%
+            </span>
+          </div>
+
+          <div class="math-line">
+            <span class="math-op">
+              →
+            </span>
+            <span>
+              Con CVR del 3% y 4.545 leads:
+            </span>
+            <span class="math-result">
+              Tráfico real = 151.500 usuarios
+            </span>
+          </div>
+
+          <span class="math-note">
+            * El 29,3% podria ser consistente con formularios nativos de Meta Lead Ads o Google Lead Form Extensions donde el usuario no abandona el sitio y la fricción es mínima.
+          </span>
+
+        </div>
+
+      </div>
+      <!-- /incons-block #2 -->
+
+      <div class="incons-label">
+        Inconsistencia #3
+        <span>
+          — El CPC de Meta vs. Google es al menos "dudoso"
+        </span>
+      </div>
+
+      <div class="cpc-analysis">
+
+        <div class="cpc-scenarios">
+
+          <div class="cpc-scenario imposible">
+
+            <div class="cpc-s-label">
+              Escenario A — Imposible
+            </div>
+
+            <div class="cpc-s-title">
+              Todo el presupuesto en Meta
+            </div>
+
+            <div class="cpc-s-math">
+
+              <div class="cpc-s-line">
+                Budget total:
+                <strong>
+                  $14.500.000 ARS
+                </strong>
+              </div>
+
+              <div class="cpc-s-line">
+                CPC Meta:
+                <strong>
+                  $3.500 ARS
+                </strong>
+              </div>
+
+              <div class="cpc-s-line">
+                $14.500.000 ÷ $3.500 =
+              </div>
+
+            </div>
+
+            <div class="cpc-s-result">
+              4.143 usuarios — no 15.500 ✗
+            </div>
+
+            <div class="cpc-s-verdict">
+              Con todo el presupuesto en Meta al CPC declarado, el tráfico máximo posible sería 4.143 usuarios. Los 15.500 declarados son imposibles.
+            </div>
+
+          </div>
+
+          <div class="cpc-scenario illogic">
+
+            <div class="cpc-s-label">
+              Escenario B — Ilógico
+            </div>
+
+            <div class="cpc-s-title">
+              ~68% Meta / ~32% Google para llegar a 15.500
+            </div>
+
+            <div class="cpc-s-math">
+
+              <div class="cpc-s-line">
+                Meta:
+                <strong>
+                  ~$9.870.000 ARS
+                </strong>
+                → 2.820 usuarios
+              </div>
+
+              <div class="cpc-s-line">
+                Google:
+                <strong>
+                  ~$4.630.000 ARS
+                </strong>
+                → 12.680 usuarios
+              </div>
+
+              <div class="cpc-s-line">
+                Total:
+                <strong>
+                  15.500 usuarios
+                </strong>
+                ✓
+              </div>
+
+            </div>
+
+            <div class="cpc-s-result">
+              68% del budget genera solo 18% del tráfico ⚠
+            </div>
+
+            <div class="cpc-s-verdict">
+              Esta es la única distribución que cuadra matemáticamente. Pero entonces: ¿por qué invertir el 68% en Meta si genera 9.6x menos tráfico por peso invertido que Google?
+            </div>
+
+          </div>
+
+          <div class="cpc-scenario conclusion">
+
+            <div class="cpc-s-label">
+              La cuenta que no me cierra
+            </div>
+
+            <div class="cpc-s-title">
+              ¿Qué pasaría si ese budget en Meta Ads se pusiera en Google?
+            </div>
+
+            <div class="cpc-s-math">
+
+              <div class="cpc-s-line">
+                $9.870.000 ARS (budget Meta) ÷
+              </div>
+
+              <div class="cpc-s-line">
+                $365 ARS (CPC Google) =
+              </div>
+
+              <div class="cpc-s-line">
+                <strong>
+                  27.041 usuarios adicionales
+                </strong>
+              </div>
+
+            </div>
+
+            <div class="cpc-s-result">
+              +27.000 usuarios con mayor intención ↗
+            </div>
+
+            <div class="cpc-s-verdict">
+              Google Search captura demanda activa — el usuario ya esta buscando la solución. No tiene lógica pagar 9.6x más por un clic de menor intención. Los datos deben estar mal.
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="cpc-insight">
+
+          <p>
+            <strong>
+              Conclusión:
+            </strong>
+            o el CPC de Meta está mal declarado (posiblemente es CPM o un promedio que mezcla tipos de campaña muy distintos), o la distribución de presupuesto entre plataformas tiene una justificación que los datos no muestran, o los $3.500 ARS corresponden a otro tipo de métrica. Antes de tocar cualquier campaña, necesito ver las cuentas reales.
+            <strong>
+              No existe forma responsable de optimizar una estructura de medios que no entiendo.
+            </strong>
+          </p>
+
+        </div>
+
+      </div>
+      <!-- /incons-block #3 (cpc-analysis) -->
+
+      <div class="big-numbers" style="margin-top:40px;">
+
+        <div class="big-num-item">
+
+          <div class="big-num-value accent">
+            $1.000.000
+          </div>
+
+          <div class="big-num-label">
+            CAC Total
+            <br>
+            (Paid CAC: USD 500 × $1.450 ARS = $725.000)
+          </div>
+
+        </div>
+
+        <div class="big-num-item">
+
+          <div class="big-num-value">
+            $1.200.000
+          </div>
+
+          <div class="big-num-label">
+            Ticket promedio
+            <br>
+            declarado
+          </div>
+
+        </div>
+
+        <div class="big-num-item">
+
+          <div class="big-num-value danger">
+            16,7%
+          </div>
+
+          <div class="big-num-label">
+            Margen bruto sobre ticket
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="highlight-box">
+
+        <p>
+          El CAC declarado de $1.000.000 ARS incluye probablemente costos operativos (equipo comercial, herramientas, overhead) además del gasto en medios ($725.000 ARS).
+          <strong>
+            Podría tomarlo como cierto pero necesitaria verificarlo antes.
+          </strong>
+          Actualmente, el costo de adquisición representa el 83% del ingreso por cliente, dejando un margen del 16,7%. Si bien el negocio es rentable en términos unitarios, el margen es bajo y presenta riesgo operativo ante cualquier incremento en el CAC Total (alquileres, impuestos, salarios, etc) o caída en la conversión.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════
+     03 — ANTES DE PROPONER
+══════════════════════════════════════ -->
+
+    <div class="section section-warn">
+
+      <div class="section-header">
+
+        <div class="section-label">
+          03
+        </div>
+
+        <h2 class="page-title">
+          Antes
+          <br>
+          de proponer nada
+        </h2>
+
+      </div>
+
+      <p>
+        Como especialista en growth marketing con foco en performance, la primera pregunta que me hago frente a un funnel no es
+        <em>
+          "¿qué cambio?"
+        </em>
+        sino
+        <em>
+          "¿qué cosas sé realmente, y cuales no?"
+        </em>
+        . Y en este caso, los
+        <strong>
+          no sé
+        </strong>
+        son demasiados como para dar una opinión responsable sin primero hacer una auditoría completa.
+      </p>
+
+      <p>
+        Lo que sigue en este documento son ideas y marcos conceptuales basados en experiencias con clientes similares. No son un plan de acción. Un plan real requiere datos reales, y esos datos solo existen después de la auditoría.
+      </p>
+
+      <div class="unknown-section">
+
+        <div class="unknown-category">
+
+          <div class="unknown-cat-title">
+            Datos e integridad del funnel
+          </div>
+
+          <div class="unknown-items">
+
+            <div class="unknown-item">
+              ¿Los $10.000 USD son inversión en plataformas o incluyen fee de agencia? ¿Hay canales activos fuera de Meta y Google?
+            </div>
+
+            <div class="unknown-item">
+              ¿Los 15.500 usuarios son sesiones web (GA4), interacciones con formularios nativos de plataforma, o una combinación sin separar?
+            </div>
+
+            <div class="unknown-item">
+              La CVR del 3% no produce 800 leads con 15.500 visitantes. La tasa real es 5,16%. ¿Qué base se usó para calcular ese 3%?
+            </div>
+
+            <div class="unknown-item">
+              ¿El ticket de $1.200.000 ARS es un pago único, un proyecto acotado o un retainer mensual? Sin eso, no puedo calcular el LTV y el CAC admisible.
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="unknown-category">
+
+          <div class="unknown-cat-title">
+            Estructura de medios y campañas
+          </div>
+
+          <div class="unknown-items">
+
+            <div class="unknown-item">
+              No conozco la estructura actual de campañas en Meta ni en Google. No puedo proponer cambios sin saber qué existe hoy.
+            </div>
+
+            <div class="unknown-item">
+              No sé la distribución real del presupuesto entre plataformas. Con CPC Meta 9,6x más caro que Google, la lógica de inversión no es evidente.
+            </div>
+
+            <div class="unknown-item">
+              No sé si usan formularios nativos (Meta Lead Ads, Google Lead Form Extensions) o solo tráfico a landing page. La mezcla sin separar contamina toda la atribución.
+            </div>
+
+            <div class="unknown-item">
+              No conozco los creativos actuales. No puedo proponer "cambiar el ángulo" sin saber cuál es el ángulo que están usando hoy.
+            </div>
+
+            <div class="unknown-item">
+              No sé qué keywords están activas en Google Search ni cuál es la intención real del tráfico. No sé el CTR, el Quality Score ni la estructura de grupos de anuncios.
+            </div>
+
+            <div class="unknown-item">
+              No sé si hay campañas de retargeting activas, a qué audiencias apuntan ni qué excluyen.
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="unknown-category">
+
+          <div class="unknown-cat-title">
+            Stack tecnológico y tracking
+          </div>
+
+          <div class="unknown-items">
+
+            <div class="unknown-item">
+              No sé si GTM está correctamente configurado ni si tienen un contenedor server-side (sGTM). Sin server-side, las fugas por iOS ATT, bloqueadores de anuncios y cookies de corta duración pueden ser del 20-40%.
+            </div>
+
+            <div class="unknown-item">
+              No sé si Meta Conversions API (CAPI) está implementada ni con qué eventos y calidad de datos. Si no está, Meta optimiza con señales incompletas.
+            </div>
+
+            <div class="unknown-item">
+              No sé cómo están configuradas las conversiones en Meta y Google Ads. Si están optimizando por "formulario completado", el algoritmo aprende el perfil de quien llena forms, no de quien compra.
+            </div>
+
+            <div class="unknown-item">
+              No sé si GA4 tiene eventos enriquecidos y correctamente parametrizados. Sin eso, el análisis de comportamiento de usuario es ciego.
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="unknown-category">
+
+          <div class="unknown-cat-title">
+            Proceso comercial y CRM
+          </div>
+
+          <div class="unknown-items">
+
+            <div class="unknown-item">
+              No sé si usan CRM ni cuál. No sé si los cambios de estado del lead se registran automáticamente o de forma manual.
+            </div>
+
+            <div class="unknown-item">
+              No sé por qué el 20% de leads calificados no se contacta. ¿Datos incorrectos? ¿Falta de tiempo? ¿Sin proceso definido? Son causas muy distintas con soluciones muy distintas.
+            </div>
+
+            <div class="unknown-item">
+              No sé el tiempo promedio de primer contacto desde que entra un lead. Contactar en 5 minutos vs. 24 horas tiene un impacto medible y documentado en el show rate.
+            </div>
+
+            <div class="unknown-item">
+              No sé qué criterio define un lead como "calificado" ni quién lo aplica ni cuándo. Sin criterio explícito, el 55% es solo un número.
+            </div>
+
+            <div class="unknown-item">
+              No sé si hay algún proceso automatizado de nurturing entre la captura del lead y la reunión — secuencia de emails, WhatsApp, recordatorios.
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="disclaimer">
+
+        <span class="disclaimer-label">
+          Postura profesional
+        </span>
+
+        <h3>
+          En un caso real, esto sería el primer entregable.
+        </h3>
+
+        <p>
+          Si Milbrands fuera un cliente real con el que estoy trabajando y está confiando en mi expertise, la respuesta antes de tocar cualquier campaña sería esta:
+          <strong>
+            Necesitamos una auditoría de 2 semanas
+          </strong>
+          para despejar cada uno de estos interrogantes antes de proponer absolutamente nada.
+        </p>
+
+        <p>
+          Cambiar creativos, landing pages o estructuras de campaña sobre datos inconsistentes no va a mejorar el negocio — lo optimizaria hacia el lugar equivocado y de manera más rápida.
+        </p>
+
+        <p>
+          Lo que sigue en esta presentación son
+          <strong>
+            hipótesis y marcos orientativos
+          </strong>
+          basados en experiencia con clientes similares en servicios B2B. Nada de esto reemplaza los datos reales que solo existen dentro de las cuentas de Milbrands.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════
+     BRIDGE — TRANSICIÓN ANÁLISIS → EJERCICIO
+══════════════════════════════════════ -->
+
+    <div class="section-bridge">
+
+      <div class="bridge-inner">
+
+        <div class="bridge-tag">
+          Análisis del caso — a partir de aquí
+        </div>
+
+        <h2 class="bridge-heading">
+          Lo que sigue responde el ejercicio.
+          <br>
+          No el negocio real.
+        </h2>
+
+        <p class="bridge-body">
+          Las consignas del PDF solicitan identificar cuellos de botella, proponer mejoras, diseñar campañas, creativos y métricas.
+          <strong>
+            Este documento los responde.
+          </strong>
+          Pero no puede ignorar lo que ya quedó documentado: los datos del funnel presentado son inconsistentes en al menos tres dimensiones verificables.
+        </p>
+
+        <p class="bridge-body">
+          Con esas inconsistencias encima de la mesa, afirmar con certeza cuál es el cuello de botella real, qué etapa tiene mayor impacto o qué hipótesis son las correctas sería exactamente
+          <em>
+            un ejercicio de adivinanza que como especialista en growth no puedo cometer.
+          </em>
+          Optimizar sobre datos que no se entienden no mejora el negocio — lo lleva más rápido hacia el lugar equivocado.
+        </p>
+
+        <p class="bridge-body">
+          Lo que hacen las secciones que siguen es aplicar
+          <strong>
+            frameworks de análisis a los datos disponibles
+          </strong>
+          , dejar explícitos los supuestos en cada punto, y señalar qué habría que verificar antes de actuar. No son diagnósticos definitivos — son el análisis que activaría el día uno después de la auditoría.
+        </p>
+
+        <div class="bridge-divider">
+        </div>
+
+        <p class="bridge-footer">
+          Si los datos fueran confiables, lo que sigue sería el plan de acción. Como no lo son todavía, es el plan que ejecutaría en cuanto lo sean.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════
+     04 — DIAGNÓSTICO DEL FUNNEL
+══════════════════════════════════════ -->
+
+    <div class="section">
+
+      <div class="section-header">
+
+        <div class="section-label">
+          04
+        </div>
+
+        <h2 class="page-title">
+          Diagnóstico
+          <br>
+          del Funnel
+        </h2>
+
+      </div>
+
+      <p>
+        Los mismos datos pueden leerse en dos direcciones — y las dos arrojan resultados incompatibles entre sí. El
+        <strong>
+          Escenario A
+        </strong>
+        aplica los porcentajes declarados de arriba hacia abajo. El
+        <strong>
+          Escenario B
+        </strong>
+        parte del único número verificable (20 ventas) y calcula qué necesita el tope del funnel para que eso sea cierto. Ninguno coincide con el otro. Esa contradicción es el problema central.
+      </p>
+
+      <div class="dual-funnel">
+
+        <!-- ─── ESCENARIO A: PROGRESIVO ─── -->
+
+        <div class="funnel-scenario">
+
+          <div class="scenario-header">
+
+            <div class="scenario-tag prog">
+              Escenario A — Progresivo
+            </div>
+
+            <div class="scenario-heading">
+              Aplicando los porcentajes declarados de arriba hacia abajo
+            </div>
+
+            <div class="scenario-desc">
+              Partiendo de los 15.500 usuarios declarados y aplicando cada tasa en cadena, ¿a cuántas ventas se llega?
+            </div>
+
+          </div>
+
+          <div class="scenario-funnel">
+
+            <div class="funnel-row">
+
+              <div class="funnel-stage dato-duro">
+
+                <span class="funnel-stage-name">
+                  Tráfico
+                  <span class="stage-badge bd">
+                    dato duro
+                  </span>
+                </span>
+
+                <span class="funnel-stage-num" style="color:var(--success)">
+                  15.500
+                </span>
+
+              </div>
+
+              <div class="funnel-connector">
+
+                <div class="funnel-arrow-line">
+                </div>
+
+                <span class="funnel-rate">
+                  5,16% CVR → leads
+                </span>
+
+                <div class="funnel-arrow-line">
+                </div>
+
+              </div>
+
+              <div class="funnel-stage">
+
+                <span class="funnel-stage-name">
+                  Leads generados
+                </span>
+
+                <span class="funnel-stage-num">
+                  800
+                </span>
+
+              </div>
+
+              <div class="funnel-connector">
+
+                <div class="funnel-arrow-line">
+                </div>
+
+                <span class="funnel-rate bad">
+                  55% calificados
+                </span>
+
+                <div class="funnel-arrow-line">
+                </div>
+
+              </div>
+
+              <div class="funnel-stage">
+
+                <span class="funnel-stage-name">
+                  Leads calificados
+                </span>
+
+                <span class="funnel-stage-num">
+                  440
+                </span>
+
+              </div>
+
+              <div class="funnel-connector">
+
+                <div class="funnel-arrow-line">
+                </div>
+
+                <span class="funnel-rate bad">
+                  80% contactados
+                </span>
+
+                <div class="funnel-arrow-line">
+                </div>
+
+              </div>
+
+              <div class="funnel-stage">
+
+                <span class="funnel-stage-name">
+                  Contactados
+                </span>
+
+                <span class="funnel-stage-num">
+                  352
+                </span>
+
+              </div>
+
+              <div class="funnel-connector">
+
+                <div class="funnel-arrow-line">
+                </div>
+
+                <span class="funnel-rate critical">
+                  20% show rate
+                </span>
+
+                <div class="funnel-arrow-line">
+                </div>
+
+              </div>
+
+              <div class="funnel-stage critical">
+
+                <span class="funnel-stage-name">
+                  Reuniones
+                </span>
+
+                <span class="funnel-stage-num" style="color:var(--danger)">
+                  ~70
+                </span>
+
+              </div>
+
+              <div class="funnel-connector">
+
+                <div class="funnel-arrow-line">
+                </div>
+
+                <span class="funnel-rate critical">
+                  5% cierre
+                </span>
+
+                <div class="funnel-arrow-line">
+                </div>
+
+              </div>
+
+              <div class="funnel-stage implicito">
+
+                <span class="funnel-stage-name">
+                  Ventas
+                  <span class="stage-badge bi">
+                    ≠ 20 declaradas
+                  </span>
+                </span>
+
+                <span class="funnel-stage-num" style="color:var(--danger)">
+                  3–4
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="scenario-bottlenecks">
+
+            <div class="bottlenecks-title">
+              Cuellos de botella en este escenario
+            </div>
+
+            <div class="bottleneck-item">
+
+              <div class="bottleneck-val danger">
+                20%
+              </div>
+
+              <div class="bottleneck-text">
+
+                <strong>
+                  Show rate — el más crítico
+                </strong>
+
+                <span>
+                  8 de cada 10 reuniones agendadas no se concretan. Benchmark B2B: 40–60%. El lead llega sin educación previa y sin intención real.
+                </span>
+
+              </div>
+
+            </div>
+
+            <div class="bottleneck-item">
+
+              <div class="bottleneck-val danger">
+                5%
+              </div>
+
+              <div class="bottleneck-text">
+
+                <strong>
+                  Tasa de cierre — comercial crítico
+                </strong>
+
+                <span>
+                  Benchmark B2B consultivo de alto ticket: 20–30%. La reunión llega demasiado temprano en el ciclo de consideración.
+                </span>
+
+              </div>
+
+            </div>
+
+            <div class="bottleneck-item">
+
+              <div class="bottleneck-val warn">
+                45%
+              </div>
+
+              <div class="bottleneck-text">
+
+                <strong>
+                  Leads no calificados
+                </strong>
+
+                <span>
+                  360 de 800 leads son descartados. Infla el CAC, destruye el tiempo del equipo comercial y contamina la señal de optimización en plataformas.
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- ─── ESCENARIO B: REGRESIVO ─── -->
+
+        <div class="funnel-scenario">
+
+          <div class="scenario-header">
+
+            <div class="scenario-tag regr">
+              Escenario B — Regresivo
+            </div>
+
+            <div class="scenario-heading">
+              Partiendo de las 20 ventas reales hacia atrás
+            </div>
+
+            <div class="scenario-desc">
+              Si 20 ventas es el dato verdadero, ¿qué tendría que haber en el tope del funnel con estos mismos porcentajes?
+            </div>
+
+          </div>
+
+          <div class="scenario-funnel">
+
+            <div class="funnel-row">
+
+              <div class="funnel-stage implicito">
+
+                <span class="funnel-stage-name">
+                  Tráfico necesario
+                  <span class="stage-badge bi">
+                    implícito
+                  </span>
+                </span>
+
+                <span class="funnel-stage-num" style="color:var(--danger)">
+                  151.500
+                </span>
+
+              </div>
+
+              <div class="funnel-connector">
+
+                <div class="funnel-arrow-line">
+                </div>
+
+                <span class="funnel-rate bad">
+                  3% CVR declarada
+                </span>
+
+                <div class="funnel-arrow-line">
+                </div>
+
+              </div>
+
+              <div class="funnel-stage calculado">
+
+                <span class="funnel-stage-name">
+                  Leads necesarios
+                  <span class="stage-badge bc">
+                    calculado
+                  </span>
+                </span>
+
+                <span class="funnel-stage-num" style="color:var(--accent-dark)">
+                  4.545
+                </span>
+
+              </div>
+
+              <div class="funnel-connector">
+
+                <div class="funnel-arrow-line">
+                </div>
+
+                <span class="funnel-rate bad">
+                  55% calificados
+                </span>
+
+                <div class="funnel-arrow-line">
+                </div>
+
+              </div>
+
+              <div class="funnel-stage calculado">
+
+                <span class="funnel-stage-name">
+                  Calificados
+                  <span class="stage-badge bc">
+                    calculado
+                  </span>
+                </span>
+
+                <span class="funnel-stage-num" style="color:var(--accent-dark)">
+                  2.500
+                </span>
+
+              </div>
+
+              <div class="funnel-connector">
+
+                <div class="funnel-arrow-line">
+                </div>
+
+                <span class="funnel-rate bad">
+                  80% contactados
+                </span>
+
+                <div class="funnel-arrow-line">
+                </div>
+
+              </div>
+
+              <div class="funnel-stage calculado">
+
+                <span class="funnel-stage-name">
+                  Contactados
+                  <span class="stage-badge bc">
+                    calculado
+                  </span>
+                </span>
+
+                <span class="funnel-stage-num" style="color:var(--accent-dark)">
+                  2.000
+                </span>
+
+              </div>
+
+              <div class="funnel-connector">
+
+                <div class="funnel-arrow-line">
+                </div>
+
+                <span class="funnel-rate bad">
+                  20% show rate
+                </span>
+
+                <div class="funnel-arrow-line">
+                </div>
+
+              </div>
+
+              <div class="funnel-stage calculado">
+
+                <span class="funnel-stage-name">
+                  Reuniones
+                  <span class="stage-badge bc">
+                    calculado
+                  </span>
+                </span>
+
+                <span class="funnel-stage-num" style="color:var(--accent-dark)">
+                  400
+                </span>
+
+              </div>
+
+              <div class="funnel-connector">
+
+                <div class="funnel-arrow-line">
+                </div>
+
+                <span class="funnel-rate">
+                  5% cierre
+                </span>
+
+                <div class="funnel-arrow-line">
+                </div>
+
+              </div>
+
+              <div class="funnel-stage dato-duro">
+
+                <span class="funnel-stage-name">
+                  Ventas
+                  <span class="stage-badge bd">
+                    dato duro
+                  </span>
+                </span>
+
+                <span class="funnel-stage-num" style="color:var(--success)">
+                  20
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="scenario-bottlenecks">
+
+            <div class="bottlenecks-title">
+              Inconsistencias que revela este escenario
+            </div>
+
+            <div class="bottleneck-item">
+
+              <div class="bottleneck-val danger">
+                10x
+              </div>
+
+              <div class="bottleneck-text">
+
+                <strong>
+                  Gap de tráfico
+                </strong>
+
+                <span>
+                  Para llegar a 20 ventas con estos porcentajes se necesitan 151.500 usuarios — 9,8x más que los 15.500 declarados.
+                </span>
+
+              </div>
+
+            </div>
+
+            <div class="bottleneck-item">
+
+              <div class="bottleneck-val danger">
+                5,7x
+              </div>
+
+              <div class="bottleneck-text">
+
+                <strong>
+                  Gap de reuniones
+                </strong>
+
+                <span>
+                  El funnel progresivo produce ~70 reuniones. Para 20 ventas al 5% de cierre, se necesitan 400. La diferencia no se explica con los datos disponibles.
+                </span>
+
+              </div>
+
+            </div>
+
+            <div class="bottleneck-item">
+
+              <div class="bottleneck-val warn">
+                29%
+              </div>
+
+              <div class="bottleneck-text">
+
+                <strong>
+                  La CVR que haría cuadrar todo
+                </strong>
+
+                <span>
+                  Si el tráfico es realmente 15.500, la CVR necesaria para producir 4.545 leads es 29,3% — consistente solo con formularios nativos de Meta Lead Ads o Google Lead Form Extensions.
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+      <!-- /dual-funnel -->
+
+      <div class="funnel-conflict">
+
+        <div class="conflict-label">
+          Conclusión del diagnóstico
+        </div>
+
+        <h3 class="conflict-heading">
+          Dos lecturas del mismo funnel. Dos resultados incompatibles.
+          <br>
+          Los cuellos de botella no se pueden diagnosticar con precisión.
+        </h3>
+
+        <p class="conflict-body">
+          El Escenario A produce 3–4 ventas con los datos declarados. El Escenario B necesita 151.500 usuarios o una CVR de 29,3% para explicar las 20 ventas reales.
+          <strong>
+            Ambos no pueden ser ciertos al mismo tiempo.
+          </strong>
+          Esto significa que al menos una variable clave del funnel está mal medida, mal definida o no refleja la realidad operativa del negocio.
+        </p>
+
+        <p class="conflict-body">
+          Identificar "el cuello de botella principal" sobre esta base no es análisis — es imposible.
+          <strong>
+            La única acción responsable es la auditoría.
+          </strong>
+          Hasta que los datos sean confiables, cualquier optimización — de presupuesto, creativos, landing o proceso comercial — se ejecuta sobre premisas que no se sostienen.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════
+     05 — LAS HIPÓTESIS
+══════════════════════════════════════ -->
+
+    <div class="section section-medium">
+
+      <div class="section-header">
+
+        <div class="section-label">
+          05
+        </div>
+
+        <h2 class="page-title">
+          Las
+          <br>
+          hipótesis
+        </h2>
+
+      </div>
+
+      <p>
+        Sin acceso a las cuentas reales, estas son las hipótesis más probables que explicarían la baja performance — ordenadas por impacto potencial estimado.
+      </p>
+
+      <div class="problem-list" style="margin-top:40px; border-color:rgba(255,255,255,.1);">
+
+        <div class="problem-item" style="border-color:rgba(255,255,255,.08);">
+
+          <div class="problem-num" style="background:rgba(200,169,110,.1);border-color:rgba(255,255,255,.08);">
+            H1
+          </div>
+
+          <div class="problem-content" style="background:rgba(255,255,255,.03);">
+
+            <h3 style="color:var(--white);">
+              Captura sin educación previa
+            </h3>
+
+            <p style="color:rgba(245,242,238,.6);">
+              Los formularios nativos de Meta/Google capturan al usuario mientras consume contenido, no cuando busca activamente una solución. El lead llega al comercial sin entender qué es Milbrands, qué cuesta ni si el servicio es para él. Para una compra B2B de $1.200.000 ARS con ciclo de deliberación largo, ese gap es letal para el show rate y el cierre.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="problem-item" style="border-color:rgba(255,255,255,.08);">
+
+          <div class="problem-num" style="background:rgba(200,169,110,.1);border-color:rgba(255,255,255,.08);">
+            H2
+          </div>
+
+          <div class="problem-content" style="background:rgba(255,255,255,.03);">
+
+            <h3 style="color:var(--white);">
+              Señales de conversión incorrectas en plataformas
+            </h3>
+
+            <p style="color:rgba(245,242,238,.6);">
+              Si Meta y Google optimizan por "formulario completado", el algoritmo aprende el perfil de quien llena forms — no el de quien compra consultoría B2B. Con el tiempo, las plataformas traen más leads de baja intención porque eso es exactamente lo que se les enseñó a buscar. El 45% de leads no calificados puede ser consecuencia directa de esta señal errónea.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="problem-item" style="border-color:rgba(255,255,255,.08);">
+
+          <div class="problem-num" style="background:rgba(200,169,110,.1);border-color:rgba(255,255,255,.08);">
+            H3
+          </div>
+
+          <div class="problem-content" style="background:rgba(255,255,255,.03);">
+
+            <h3 style="color:var(--white);">
+              Ausencia de nurturing entre lead y reunión
+            </h3>
+
+            <p style="color:rgba(245,242,238,.6);">
+              Sin una secuencia automatizada de emails o mensajes que acompañe al lead desde el registro hasta la reunión, el 80% que no aparece simplemente olvidó por qué se anotó, encontró otra opción, o llegó a la reunión sin el contexto mínimo necesario para avanzar.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="problem-item" style="border-color:rgba(255,255,255,.08);">
+
+          <div class="problem-num" style="background:rgba(200,169,110,.1);border-color:rgba(255,255,255,.08);">
+            H4
+          </div>
+
+          <div class="problem-content" style="background:rgba(255,255,255,.03);">
+
+            <h3 style="color:var(--white);">
+              Mismatch entre promesa del anuncio y realidad del servicio
+            </h3>
+
+            <p style="color:rgba(245,242,238,.6);">
+              El anuncio dice "hacé crecer tu ecommerce". El lead imagina algo rápido, accesible y táctico. La reunión revela una consultoría estratégica de largo plazo con inversión significativa. Esa brecha entre expectativa y realidad es confirmada por el propio equipo comercial: "expectativas incorrectas", "no entienden bien el servicio".
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="problem-item" style="border-color:rgba(255,255,255,.08);">
+
+          <div class="problem-num" style="background:rgba(200,169,110,.1);border-color:rgba(255,255,255,.08);">
+            H5
+          </div>
+
+          <div class="problem-content" style="background:rgba(255,255,255,.03);">
+
+            <h3 style="color:var(--white);">
+              ICP no integrado en la segmentación
+            </h3>
+
+            <p style="color:rgba(245,242,238,.6);">
+              Los anuncios probablemente no distinguen entre un dueño de empresa con facturación de $50M y un empleado de marketing curioseando. Sin segmentación por cargo, tamaño de empresa o señales de intención, el tráfico es heterogéneo y la calidad del lead es estructuralmente impredecible.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="problem-item" style="border-color:rgba(255,255,255,.08);">
+
+          <div class="problem-num" style="background:rgba(200,169,110,.1);border-color:rgba(255,255,255,.08);">
+            H6
+          </div>
+
+          <div class="problem-content" style="background:rgba(255,255,255,.03);">
+
+            <h3 style="color:var(--white);">
+              Proceso comercial sin etapas definidas
+            </h3>
+
+            <p style="color:rgba(245,242,238,.6);">
+              Un 5% de cierre sobre reuniones en B2B consultivo de alto ticket sugiere que la reunión ocurre demasiado temprano: no hay discovery previo estandarizado, no hay prepwork del lead, no hay contexto compartido. El comercial llega a una reunión de cierre con alguien que todavía está en modo exploración.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════
+     06 — PROPUESTA DE OPTIMIZACIÓN
+══════════════════════════════════════ -->
+
+    <div class="section">
+
+      <div class="section-header">
+
+        <div class="section-label">
+          06
+        </div>
+
+        <h2 class="page-title">
+          Propuesta de
+          <br>
+          optimización
+        </h2>
+
+      </div>
+
+      <p>
+        Estas son las áreas donde concentraría los esfuerzos de mejora.
+        <strong>
+          Reitero: cada una de estas propuestas requiere ser validada contra la realidad actual
+        </strong>
+        de las cuentas, el stack tecnológico y el proceso comercial — que hoy desconozco.
+      </p>
+
+      <div class="solution-flow">
+
+        <div class="sol-step">
+
+          <div class="sol-num">
+            A
+          </div>
+
+          <div class="sol-content">
+
+            <h4>
+              Adquisición — separar señal de ruido
+            </h4>
+
+            <p>
+              Migrar Meta de audiencias de interés a Lookalike 1–2% construido sobre la lista de los 650+ clientes activos. Es la señal más valiosa y probablemente no se esté usando. En Google, separar Performance Max de Search para controlar y medir independientemente. Auditar keywords con negativas exhaustivas: eliminar tráfico informacional ("cómo vender en Mercado Libre gratis") que genera clics baratos pero leads sin presupuesto ni intención real.
+            </p>
+
+          </div>
+
+          <div class="sol-tag">
+            <span class="sol-badge badge-adq">
+              Adquisición
+            </span>
+          </div>
+
+        </div>
+
+        <div class="sol-step">
+
+          <div class="sol-num">
+            B
+          </div>
+
+          <div class="sol-content">
+
+            <h4>
+              Señal de conversión — lo más urgente
+            </h4>
+
+            <p>
+              Dejar de optimizar por "formulario completado". Configurar Meta CAPI y Google Ads con eventos de CRM: primero "lead calificado", luego "reunión concretada". El algoritmo aprenderá el perfil de quien realmente avanza, no de quien llena un form en 10 segundos. Este cambio tiene impacto estructural y acumulativo — a medida que pasan las semanas, la calidad del tráfico mejora sola.
+            </p>
+
+          </div>
+
+          <div class="sol-tag">
+            <span class="sol-badge badge-adq">
+              Tracking
+            </span>
+          </div>
+
+        </div>
+
+        <div class="sol-step">
+
+          <div class="sol-num">
+            C
+          </div>
+
+          <div class="sol-content">
+
+            <h4>
+              Creativos — auto-selección en el mensaje
+            </h4>
+
+            <p>
+              Creativos que hablen directamente al ICP y que naturalmente desalienten a quien no califica. Si el anuncio dice "para empresas que ya facturan en digital y quieren escalar", el curioso no hace clic. Usar el sello ELITE de Mercado Libre en todos los creativos de frío — es un diferencial objetivo que ningún competidor puede replicar. Agregar formatos educativos (video 30–60 seg) que expliquen exactamente qué hace Milbrands, reduciendo el gap de expectativas antes del form.
+            </p>
+
+          </div>
+
+          <div class="sol-tag">
+            <span class="sol-badge badge-creat">
+              Creativos
+            </span>
+          </div>
+
+        </div>
+
+        <div class="sol-step">
+
+          <div class="sol-num">
+            D
+          </div>
+
+          <div class="sol-content">
+
+            <h4>
+              Landing page — pre-calificación y expectativas
+            </h4>
+
+            <p>
+              Agregar sección "Para quién es / para quién NO es Milbrands" con criterios explícitos. Incluir indicador referencial de inversión para filtrar a quien no tiene presupuesto antes de consumir tiempo del equipo. Crear thank you page con video de 60–90 seg explicando qué pasa a continuación y cómo prepararse para la llamada. Solo esto puede mover el show rate varios puntos sin tocar una sola campaña.
+            </p>
+
+          </div>
+
+          <div class="sol-tag">
+            <span class="sol-badge badge-lp">
+              Landing
+            </span>
+          </div>
+
+        </div>
+
+        <div class="sol-step">
+
+          <div class="sol-num">
+            E
+          </div>
+
+          <div class="sol-content">
+
+            <h4>
+              Calificación del lead — sistema explícito en 3 capas
+            </h4>
+
+            <p>
+              Capa 1: formulario con 3 preguntas de calificación (canal principal, rango de facturación, desafío a resolver). Capa 2: lead scoring automático por respuesta — "Alto" → llamada en menos de 30 min, "Medio" → nurturing 3–5 días + llamada, "Bajo" → educación larga. Capa 3: aplicar un criterio simil BANT estandarizado para todo el equipo comercial: Budget, Authority, Need, Timeline.
+            </p>
+
+          </div>
+
+          <div class="sol-tag">
+            <span class="sol-badge badge-lead">
+              Leads
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════
+     07 — PLAN DE TESTEO
+══════════════════════════════════════ -->
+
+    <div class="section section-dark">
+
+      <div class="section-header">
+
+        <div class="section-label">
+          07
+        </div>
+
+        <h2 class="page-title">
+          Plan de
+          <br>
+          testeo
+        </h2>
+
+      </div>
+
+      <p>
+        Cinco tests concretos, ordenados por facilidad de implementación y magnitud de impacto esperado. Cada test tiene hipótesis, métrica primaria y criterio de éxito definido antes de arrancar.
+      </p>
+
+      <div class="test-grid">
+
+        <div class="test-card" style="border-color:rgba(255,255,255,.1);">
+
+          <div class="test-header" style="border-color:rgba(255,255,255,.1);background:rgba(255,255,255,.03);">
+
+            <div class="test-num">
+              01
+            </div>
+
+            <div class="test-title-wrap">
+
+              <div class="test-title" style="color:var(--white);">
+                Formulario con preguntas de calificación
+              </div>
+
+              <div class="test-subtitle">
+                Agregar 3 preguntas de filtro al form actual
+              </div>
+
+            </div>
+
+            <div class="test-duration" style="color:rgba(245,242,238,.4);">
+              4 semanas
+            </div>
+
+          </div>
+
+          <div class="test-body" style="background:rgba(255,255,255,.02);">
+
+            <div class="test-cell" style="border-color:rgba(255,255,255,.08);">
+
+              <div class="test-cell-label">
+                Qué se testea
+              </div>
+
+              <div class="test-cell-text" style="color:rgba(245,242,238,.7);">
+                Form actual (nombre + email + tel)
+                <strong style="color:var(--white);">
+                  vs.
+                </strong>
+                form con 3 preguntas: canal digital principal, rango de facturación aproximado, principal desafío a resolver.
+              </div>
+
+            </div>
+
+            <div class="test-cell" style="border-color:rgba(255,255,255,.08);">
+
+              <div class="test-cell-label">
+                Por qué
+              </div>
+
+              <div class="test-cell-text" style="color:rgba(245,242,238,.7);">
+                El 45% de leads no calificados destruye el proceso. Si el form mismo hace el filtro, el equipo comercial trabaja con mejor materia prima desde el primer contacto.
+              </div>
+
+            </div>
+
+            <div class="test-cell" style="border-color:rgba(255,255,255,.08);">
+
+              <div class="test-cell-label">
+                KPI que impacta
+              </div>
+
+              <div class="test-cell-text" style="color:rgba(245,242,238,.7);">
+                <strong style="color:var(--accent);">
+                  % leads calificados
+                </strong>
+                (objetivo: de 55% a 70%+). Monitorear también el CVR total para verificar que la mejora de calidad compensa la posible reducción de volumen.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="test-card" style="border-color:rgba(255,255,255,.1);">
+
+          <div class="test-header" style="border-color:rgba(255,255,255,.1);background:rgba(255,255,255,.03);">
+
+            <div class="test-num">
+              02
+            </div>
+
+            <div class="test-title-wrap">
+
+              <div class="test-title" style="color:var(--white);">
+                Secuencia de nurturing pre-reunión
+              </div>
+
+              <div class="test-subtitle">
+                Automatización entre lead capturado y reunión
+              </div>
+
+            </div>
+
+            <div class="test-duration" style="color:rgba(245,242,238,.4);">
+              6 semanas
+            </div>
+
+          </div>
+
+          <div class="test-body" style="background:rgba(255,255,255,.02);">
+
+            <div class="test-cell" style="border-color:rgba(255,255,255,.08);">
+
+              <div class="test-cell-label">
+                Qué se testea
+              </div>
+
+              <div class="test-cell-text" style="color:rgba(245,242,238,.7);">
+                Flujo actual (contacto directo)
+                <strong style="color:var(--white);">
+                  vs.
+                </strong>
+                secuencia D+0: confirmación + video "qué esperar", D+1: caso de éxito relevante, D-1: recordatorio + "qué preparar para la reunión".
+              </div>
+
+            </div>
+
+            <div class="test-cell" style="border-color:rgba(255,255,255,.08);">
+
+              <div class="test-cell-label">
+                Por qué
+              </div>
+
+              <div class="test-cell-text" style="color:rgba(245,242,238,.7);">
+                Un lead que llega educado a la reunión tiene 3x más probabilidad de avanzar. El 80% de no-shows es en gran parte recuperable con proceso de confirmación y contexto previo.
+              </div>
+
+            </div>
+
+            <div class="test-cell" style="border-color:rgba(255,255,255,.08);">
+
+              <div class="test-cell-label">
+                KPI que impacta
+              </div>
+
+              <div class="test-cell-text" style="color:rgba(245,242,238,.7);">
+                <strong style="color:var(--accent);">
+                  Show rate
+                </strong>
+                (objetivo: de 20% a 35–40%). También tasa de cierre, ya que el lead llega mejor preparado a la conversación comercial.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="test-card" style="border-color:rgba(255,255,255,.1);">
+
+          <div class="test-header" style="border-color:rgba(255,255,255,.1);background:rgba(255,255,255,.03);">
+
+            <div class="test-num">
+              03
+            </div>
+
+            <div class="test-title-wrap">
+
+              <div class="test-title" style="color:var(--white);">
+                Landing con indicador de inversión
+              </div>
+
+              <div class="test-subtitle">
+                Pre-calificación negativa explícita en la landing
+              </div>
+
+            </div>
+
+            <div class="test-duration" style="color:rgba(245,242,238,.4);">
+              4 semanas
+            </div>
+
+          </div>
+
+          <div class="test-body" style="background:rgba(255,255,255,.02);">
+
+            <div class="test-cell" style="border-color:rgba(255,255,255,.08);">
+
+              <div class="test-cell-label">
+                Qué se testea
+              </div>
+
+              <div class="test-cell-text" style="color:rgba(245,242,238,.7);">
+                LP actual
+                <strong style="color:var(--white);">
+                  vs.
+                </strong>
+                LP con sección "Para quién es Milbrands" que incluye perfil de empresa ideal y rango referencial de inversión. Tráfico 50/50.
+              </div>
+
+            </div>
+
+            <div class="test-cell" style="border-color:rgba(255,255,255,.08);">
+
+              <div class="test-cell-label">
+                Por qué
+              </div>
+
+              <div class="test-cell-text" style="color:rgba(245,242,238,.7);">
+                El feedback comercial confirma que las expectativas incorrectas destruyen el proceso. Filtrar en la LP cuesta algo de CVR total pero mejora todo lo que viene después — calidad, show rate, cierre.
+              </div>
+
+            </div>
+
+            <div class="test-cell" style="border-color:rgba(255,255,255,.08);">
+
+              <div class="test-cell-label">
+                KPI que impacta
+              </div>
+
+              <div class="test-cell-text" style="color:rgba(245,242,238,.7);">
+                <strong style="color:var(--accent);">
+                  % leads calificados
+                </strong>
+                y
+                <strong style="color:var(--accent);">
+                  show rate
+                </strong>
+                . Medir también el CAC calificado (no solo CPL) para evaluar si la caída de volumen es compensada por la mejora de calidad.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="test-card" style="border-color:rgba(255,255,255,.1);">
+
+          <div class="test-header" style="border-color:rgba(255,255,255,.1);background:rgba(255,255,255,.03);">
+
+            <div class="test-num">
+              04
+            </div>
+
+            <div class="test-title-wrap">
+
+              <div class="test-title" style="color:var(--white);">
+                Lookalike de clientes vs. audiencia de intereses
+              </div>
+
+              <div class="test-subtitle">
+                Resetear la calidad del tráfico en Meta
+              </div>
+
+            </div>
+
+            <div class="test-duration" style="color:rgba(245,242,238,.4);">
+              4 semanas
+            </div>
+
+          </div>
+
+          <div class="test-body" style="background:rgba(255,255,255,.02);">
+
+            <div class="test-cell" style="border-color:rgba(255,255,255,.08);">
+
+              <div class="test-cell-label">
+                Qué se testea
+              </div>
+
+              <div class="test-cell-text" style="color:rgba(245,242,238,.7);">
+                Campaña A:
+                <strong style="color:var(--white);">
+                  Lookalike 1%
+                </strong>
+                sobre lista de 650+ clientes activos. Campaña B:
+                <strong style="color:var(--white);">
+                  audiencias de interés
+                </strong>
+                actuales. Mismo budget, mismo creativo, misma duración.
+              </div>
+
+            </div>
+
+            <div class="test-cell" style="border-color:rgba(255,255,255,.08);">
+
+              <div class="test-cell-label">
+                Por qué
+              </div>
+
+              <div class="test-cell-text" style="color:rgba(245,242,238,.7);">
+                Es el test de mayor impacto a mediano plazo. La lista de 650 clientes es la señal más valiosa que tiene Milbrands y probablemente no se esté aprovechando para construir lookalikes.
+              </div>
+
+            </div>
+
+            <div class="test-cell" style="border-color:rgba(255,255,255,.08);">
+
+              <div class="test-cell-label">
+                KPI que impacta
+              </div>
+
+              <div class="test-cell-text" style="color:rgba(245,242,238,.7);">
+                <strong style="color:var(--accent);">
+                  CPL calificado
+                </strong>
+                y
+                <strong style="color:var(--accent);">
+                  % leads calificados por fuente
+                </strong>
+                . Si el lookalike trae leads estructuralmente mejores, la inversión en Meta se justifica solo con ese ajuste.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="test-card" style="border-color:rgba(255,255,255,.1);">
+
+          <div class="test-header" style="border-color:rgba(255,255,255,.1);background:rgba(255,255,255,.03);">
+
+            <div class="test-num">
+              05
+            </div>
+
+            <div class="test-title-wrap">
+
+              <div class="test-title" style="color:var(--white);">
+                Señal de conversión calificada vía CAPI
+              </div>
+
+              <div class="test-subtitle">
+                Enseñarle al algoritmo a buscar compradores reales
+              </div>
+
+            </div>
+
+            <div class="test-duration" style="color:rgba(245,242,238,.4);">
+              8 semanas
+            </div>
+
+          </div>
+
+          <div class="test-body" style="background:rgba(255,255,255,.02);">
+
+            <div class="test-cell" style="border-color:rgba(255,255,255,.08);">
+
+              <div class="test-cell-label">
+                Qué se testea
+              </div>
+
+              <div class="test-cell-text" style="color:rgba(245,242,238,.7);">
+                Optimizar por "form submitted"
+                <strong style="color:var(--white);">
+                  vs.
+                </strong>
+                optimizar por "lead calificado" (evento enviado desde CRM vía CAPI con action_source: crm). Requiere mínimo 50 eventos/semana para que el algoritmo tenga señal suficiente.
+              </div>
+
+            </div>
+
+            <div class="test-cell" style="border-color:rgba(255,255,255,.08);">
+
+              <div class="test-cell-label">
+                Por qué
+              </div>
+
+              <div class="test-cell-text" style="color:rgba(245,242,238,.7);">
+                Es el cambio de mayor impacto estructural. Si Meta aprende el perfil del lead calificado, la calidad del tráfico mejora de forma acumulativa con el tiempo — sin cambiar creativos ni presupuesto.
+              </div>
+
+            </div>
+
+            <div class="test-cell" style="border-color:rgba(255,255,255,.08);">
+
+              <div class="test-cell-label">
+                KPI que impacta
+              </div>
+
+              <div class="test-cell-text" style="color:rgba(245,242,238,.7);">
+                <strong style="color:var(--accent);">
+                  % leads calificados
+                </strong>
+                (esperado: mejora de 15–20 puntos en 8 semanas) y
+                <strong style="color:var(--accent);">
+                  CPL calificado
+                </strong>
+                . Es el test con mayor latencia pero mayor retorno a largo plazo.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════
+     08 — KPIs Y BENCHMARKS
+══════════════════════════════════════ -->
+
+    <div class="section">
+
+      <div class="section-header">
+
+        <div class="section-label">
+          08
+        </div>
+
+        <h2 class="page-title">
+          KPIs y
+          <br>
+          benchmarks
+        </h2>
+
+      </div>
+
+      <p>
+        Las métricas organizadas en tres niveles según quién las usa y para qué. El error más común en growth marketing es medir todo o medir solo lo de arriba del funnel — hay que tener un tablero por audiencia, no un tablero único.
+      </p>
+
+      <div class="kpi-levels">
+
+        <div class="kpi-level">
+
+          <div class="kpi-level-header">
+
+            <span class="kpi-level-num">
+              Nivel 1
+            </span>
+
+            <div>
+
+              <div class="kpi-level-title">
+                Métricas de negocio
+              </div>
+
+              <div class="kpi-level-sub">
+                Las que ve el CEO — impacto directo en la caja
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="kpi-items">
+
+            <div class="kpi-item">
+
+              <div class="kpi-name">
+                CAC real
+              </div>
+
+              <div class="kpi-desc">
+                Costo total de adquirir un cliente. Incluye medios + equipo comercial + herramientas + overhead. No solo gasto en ads.
+              </div>
+
+            </div>
+
+            <div class="kpi-item">
+
+              <div class="kpi-name">
+                Revenue atribuido
+              </div>
+
+              <div class="kpi-desc">
+                Ingresos generados directamente por leads que entraron por canales pagos. Único para calcular ROAS real sobre ventas.
+              </div>
+
+            </div>
+
+            <div class="kpi-item">
+
+              <div class="kpi-name">
+                LTV / CAC ratio
+              </div>
+
+              <div class="kpi-desc">
+                Cuánto genera un cliente vs. cuánto costó adquirirlo. Saludable: LTV ≥ 3× CAC. Crítico si el ticket es pago único: CAC ≤ 33% del ticket.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="kpi-level">
+
+          <div class="kpi-level-header">
+
+            <span class="kpi-level-num">
+              Nivel 2
+            </span>
+
+            <div>
+
+              <div class="kpi-level-title">
+                Métricas de funnel
+              </div>
+
+              <div class="kpi-level-sub">
+                Las que gestiona el Growth — dónde está el problema
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="kpi-items">
+
+            <div class="kpi-item">
+
+              <div class="kpi-name">
+                CPL calificado
+              </div>
+
+              <div class="kpi-desc">
+                No el costo por lead total — el costo por lead que pasa el filtro de calificación. Es el CPL que realmente me importa.
+              </div>
+
+            </div>
+
+            <div class="kpi-item">
+
+              <div class="kpi-name">
+                Show rate
+              </div>
+
+              <div class="kpi-desc">
+                % de reuniones agendadas que se concretan. Principal palanca de mejora identificada. Objetivo: 40%+ en 90 días.
+              </div>
+
+            </div>
+
+            <div class="kpi-item">
+
+              <div class="kpi-name">
+                Tasa de cierre
+              </div>
+
+              <div class="kpi-desc">
+                % de reuniones que terminan en venta. Benchmark B2B consultivo: 20–30%. Actual: 5%. Gap que indica problema de proceso comercial.
+              </div>
+
+            </div>
+
+            <div class="kpi-item">
+
+              <div class="kpi-name">
+                Tiempo de primer contacto
+              </div>
+
+              <div class="kpi-desc">
+                Minutos entre lead generado y primera llamada/mensaje. Impacta directamente en show rate. Objetivo: menos de 30 minutos en horario laboral.
+              </div>
+
+            </div>
+
+            <div class="kpi-item">
+
+              <div class="kpi-name">
+                % leads calificados
+              </div>
+
+              <div class="kpi-desc">
+                Actual: 55%. Objetivo 6 meses: 68%+. Mejora de calidad de targeting, creativos y formulario.
+              </div>
+
+            </div>
+
+            <div class="kpi-item">
+
+              <div class="kpi-name">
+                % leads contactados
+              </div>
+
+              <div class="kpi-desc">
+                Actual: 80% de calificados. Objetivo: 95%+. El 20% no contactado es revenue perdido por problema de proceso, no de marketing.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="kpi-level">
+
+          <div class="kpi-level-header">
+
+            <span class="kpi-level-num">
+              Nivel 3
+            </span>
+
+            <div>
+
+              <div class="kpi-level-title">
+                Métricas operativas de medios
+              </div>
+
+              <div class="kpi-level-sub">
+                Las de gestión diaria — señales de salud de las campañas
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="kpi-items">
+
+            <div class="kpi-item">
+
+              <div class="kpi-name">
+                CPC por campaña
+              </div>
+
+              <div class="kpi-desc">
+                Segmentado por plataforma, tipo de campaña y audiencia. No el promedio global — la distribución.
+              </div>
+
+            </div>
+
+            <div class="kpi-item">
+
+              <div class="kpi-name">
+                CVR landing page
+              </div>
+
+              <div class="kpi-desc">
+                Por fuente de tráfico y por variante (A/B test). Benchmark B2B: 3–8%. Sobre 8% es sospechoso de medir algo incorrecto.
+              </div>
+
+            </div>
+
+            <div class="kpi-item">
+
+              <div class="kpi-name">
+                Cobertura de CAPI
+              </div>
+
+              <div class="kpi-desc">
+                % de eventos que llegan vía server-side vs. solo pixel. Objetivo: cobertura CAPI > 90% para minimizar fugas de datos y mejorar la calidad de la señal al algoritmo.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <table class="bench-table" style="margin-top:48px;">
+
+        <thead>
+
+          <tr>
+            <th>
+              Métrica
+            </th>
+            <th>
+              Estado actual
+            </th>
+            <th>
+              Benchmark saludable
+            </th>
+            <th>
+              Objetivo 6 meses
+            </th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td class="b-metric">
+              CVR a lead
+            </td>
+            <td class="b-current">
+              5,16% real
+            </td>
+            <td class="b-bench">
+              3–8% B2B
+            </td>
+            <td class="b-target">
+              6–8%
+            </td>
+          </tr>
+
+          <tr>
+            <td class="b-metric">
+              % leads calificados
+            </td>
+            <td class="b-current">
+              55%
+            </td>
+            <td class="b-bench">
+              60–70%
+            </td>
+            <td class="b-target">
+              68%+
+            </td>
+          </tr>
+
+          <tr>
+            <td class="b-metric">
+              % leads contactados
+            </td>
+            <td class="b-current">
+              80%
+            </td>
+            <td class="b-bench">
+              95%+
+            </td>
+            <td class="b-target">
+              95%
+            </td>
+          </tr>
+
+          <tr>
+            <td class="b-metric">
+              Show rate
+            </td>
+            <td class="b-current">
+              20%
+            </td>
+            <td class="b-bench">
+              40–60%
+            </td>
+            <td class="b-target">
+              40%
+            </td>
+          </tr>
+
+          <tr>
+            <td class="b-metric">
+              Tasa de cierre
+            </td>
+            <td class="b-current">
+              5%
+            </td>
+            <td class="b-bench">
+              20–30%
+            </td>
+            <td class="b-target">
+              15%+
+            </td>
+          </tr>
+
+          <tr>
+            <td class="b-metric">
+              CAC medios
+            </td>
+            <td class="b-current">
+              $725.000 ARS
+            </td>
+            <td class="b-bench">
+              &lt;40% del ticket
+            </td>
+            <td class="b-target">
+              $480.000 ARS
+            </td>
+          </tr>
+
+          <tr>
+            <td class="b-metric">
+              CAC total
+            </td>
+            <td class="b-current">
+              $1.000.000 ARS
+            </td>
+            <td class="b-bench">
+              &lt;50% del ticket
+            </td>
+            <td class="b-target">
+              $600.000 ARS
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <!-- ══════════════════════════════════════
+     09 — CALIDAD DE LEADS
+══════════════════════════════════════ -->
+
+    <div class="section section-medium">
+
+      <div class="section-header">
+
+        <div class="section-label">
+          09
+        </div>
+
+        <h2 class="page-title">
+          Calidad
+          <br>
+          de leads
+        </h2>
+
+      </div>
+
+      <p>
+        El 45% de leads no calificados no es un problema de volumen — es un problema de mensaje, segmentación y proceso. La solución es un sistema de tres capas que actúa antes, durante y después del formulario.
+      </p>
+
+      <div class="cards" style="margin-top:40px;">
+
+        <div class="card" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1);">
+
+          <div class="card-icon">
+            🎯
+          </div>
+
+          <h3 style="color:var(--white);">
+            Capa 1 — Pre-filtro antes del form
+          </h3>
+
+          <p style="color:rgba(245,242,238,.65);">
+            Creativos que hablen directamente al ICP y desalienten al que no califica. Si el anuncio dice "para empresas que facturan en digital y quieren escalar", el curioso no hace clic. Keyword negativas en Google para eliminar tráfico informacional. Segmentación por cargo en Meta (dueños, directores, gerentes). Exclusión de audiencias sin capacidad de decisión de compra.
+          </p>
+
+        </div>
+
+        <div class="card" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1);">
+
+          <div class="card-icon">
+            📋
+          </div>
+
+          <h3 style="color:var(--white);">
+            Capa 2 — Filtro en el formulario
+          </h3>
+
+          <p style="color:rgba(245,242,238,.65);">
+            Tres preguntas de calificación que actúan como gate: canal digital principal de la empresa, rango de facturación mensual aproximado, principal desafío a resolver. Lead scoring automático basado en respuestas: alto → contacto urgente en menos de 30 min, medio → nurturing corto, bajo → educación larga. El criterio BANT aplicado desde el primer touchpoint.
+          </p>
+
+        </div>
+
+        <div class="card" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1);">
+
+          <div class="card-icon">
+            📬
+          </div>
+
+          <h3 style="color:var(--white);">
+            Capa 3 — Educación post-form como filtro natural
+          </h3>
+
+          <p style="color:rgba(245,242,238,.65);">
+            La secuencia de nurturing también filtra por intención: el lead que no abre los emails, no ve el video y no confirma la reunión está indicando baja intención de compra. Mejor detectarlo antes de que consuma 45 minutos del equipo comercial. Quién no interactúa entra en flujo educativo largo — no se descarta, pero no ocupa capacidad comercial inmediata.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div style="background:var(--cream); border-left:3px solid var(--accent); border-radius:2px; padding:24px 28px; margin-top:28px;">
+
+        <p style="color:var(--text); max-width:100%; margin:0; font-size:14px; line-height:1.7;">
+          La consecuencia indirecta más importante de mejorar la calidad de leads no es el CAC — es la
+          <strong style="color:var(--accent-dark);">
+            calidad de la señal que se envía a Meta y Google
+          </strong>
+          . Si el CRM marca "calificado" y ese evento llega a las plataformas vía CAPI, el algoritmo aprende progresivamente a traer perfiles más parecidos a quien compra. Las tres capas no son solo un filtro de proceso — son el mecanismo por el cual las campañas se autorregulan y mejoran con el tiempo.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════
+     10 — EXPERIMENTACIÓN CREATIVA
+══════════════════════════════════════ -->
+
+    <div class="section">
+
+      <div class="section-header">
+
+        <div class="section-label">
+          10
+        </div>
+
+        <h2 class="page-title">
+          Angulos de
+          <br>
+          creativos
+        </h2>
+
+      </div>
+
+      <p>
+        Tres ángulos distintos para tres momentos distintos del funnel. No son creativos intercambiables — cada uno responde a una pregunta diferente que se hace el comprador en función de dónde está en su proceso de decisión.
+      </p>
+
+      <div class="creative-grid">
+
+        <div class="creative-card">
+
+          <div class="creative-left">
+
+            <div class="creative-tag">
+              Ángulo 01
+            </div>
+
+            <div class="creative-name">
+              Autoridad objetiva
+            </div>
+
+            <div class="creative-funnel">
+              TOFU — Demanda fría
+            </div>
+
+            <div class="creative-copy">
+
+              "Mercado Libre eligió a Milbrands como la mejor consultora de eCommerce de Argentina. No lo decimos nosotros — lo dicen los resultados de más de 650 empresas que crecieron con nosotros. ¿Tu negocio está listo para el siguiente nivel?"
+
+            </div>
+
+          </div>
+
+          <div class="creative-right">
+
+            <div class="creative-detail">
+
+              <div class="creative-detail-label">
+                Formato sugerido
+              </div>
+
+              <div class="creative-detail-val">
+                Video 15–30 seg o imagen estática con logo ML + número de clientes
+              </div>
+
+            </div>
+
+            <div class="creative-detail">
+
+              <div class="creative-detail-label">
+                Audiencia
+              </div>
+
+              <div class="creative-detail-val">
+                Lookalike 1–2% de clientes + dueños de empresa con interés en ecommerce
+              </div>
+
+            </div>
+
+            <div class="creative-why">
+
+              <div class="creative-why-label">
+                Por qué funciona
+              </div>
+
+              <p>
+                El sello ELITE de Mercado Libre es un diferencial objetivo que ningún competidor puede replicar. Usa prueba social de un tercero de autoridad máxima en el contexto — no una promesa propia.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="creative-card">
+
+          <div class="creative-left">
+
+            <div class="creative-tag">
+              Ángulo 02
+            </div>
+
+            <div class="creative-name">
+              Dolor específico + espejo
+            </div>
+
+            <div class="creative-funnel">
+              MOFU — Consideración activa
+            </div>
+
+            <div class="creative-copy">
+
+              "Invertís en publicidad, el tráfico llega, los leads entran... pero las ventas no escalan. Y tu equipo no sabe exactamente por qué. Si te suena familiar, no es un problema de inversión. Es un problema de estructura. Eso es exactamente lo que hacemos en Milbrands."
+
+            </div>
+
+          </div>
+
+          <div class="creative-right">
+
+            <div class="creative-detail">
+
+              <div class="creative-detail-label">
+                Formato sugerido
+              </div>
+
+              <div class="creative-detail-val">
+                Video conversacional 30–45 seg o copy largo en imagen / carrusel
+              </div>
+
+            </div>
+
+            <div class="creative-detail">
+
+              <div class="creative-detail-label">
+                Audiencia
+              </div>
+
+              <div class="creative-detail-val">
+                Retargeting a visitantes de la web + Lookalike 2–5% (más amplio)
+              </div>
+
+            </div>
+
+            <div class="creative-why">
+
+              <div class="creative-why-label">
+                Por qué funciona
+              </div>
+
+              <p>
+                No vende el servicio — vende el reconocimiento del problema. Habla el idioma del dueño que ya invirtió, ya tuvo leads y sigue frustrado. Genera confianza antes de la venta al mostrar que entendemos el dolor.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="creative-card">
+
+          <div class="creative-left">
+
+            <div class="creative-tag">
+              Ángulo 03
+            </div>
+
+            <div class="creative-name">
+              Resultado cuantificado
+            </div>
+
+            <div class="creative-funnel">
+              BOFU — Decisión inminente
+            </div>
+
+            <div class="creative-copy">
+
+              "[Empresa X] llegó a Milbrands facturando $Y por mes en Mercado Libre. En 90 días llegó a $Z. Esto es lo que cambió: [3 acciones concretas]. Si tu empresa está en una situación similar, podemos hacer lo mismo."
+
+            </div>
+
+          </div>
+
+          <div class="creative-right">
+
+            <div class="creative-detail">
+
+              <div class="creative-detail-label">
+                Formato sugerido
+              </div>
+
+              <div class="creative-detail-val">
+                Carrusel con capturas de dashboard real o video testimonial del cliente
+              </div>
+
+            </div>
+
+            <div class="creative-detail">
+
+              <div class="creative-detail-label">
+                Audiencia
+              </div>
+
+              <div class="creative-detail-val">
+                Retargeting a leads que no convirtieron + visitantes de pricing/servicios
+              </div>
+
+            </div>
+
+            <div class="creative-why">
+
+              <div class="creative-why-label">
+                Por qué funciona
+              </div>
+
+              <p>
+                El comprador B2B en etapa de decisión necesita evidencia concreta de que funciona para alguien en su misma situación. Un número real ("3x en 90 días") vale más que diez promesas genéricas.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════
+     11 — CONCLUSIONES FINALES
+══════════════════════════════════════ -->
+
+    <div class="section">
+
+      <div class="section-header">
+
+        <div class="section-label">
+          11
+        </div>
+
+        <h2 class="page-title">
+          Conclusion
+          <br>
+          final
+        </h2>
+
+      </div>
+
+      <p>
+        Este documento analizó en profundidad el funnel de Milbrands con los datos disponibles. La conclusión no es un plan de campañas ni una lista de mejoras — es un diagnóstico honesto de lo que sabemos, lo que no sabemos y lo que debe resolverse antes de poder tomar cualquier decisión de inversión con responsabilidad.
+      </p>
+
+      <!-- ─── LO QUE SABEMOS ─── -->
+
+      <div class="incons-label" style="margin-top:40px;">
+        Lo que el análisis revela
+        <span>
+          — datos con evidencia suficiente para opinar
+        </span>
+      </div>
+
+      <div class="conclusions-findings">
+
+        <div class="finding-card">
+
+          <div class="finding-num">
+            Hallazgo 01
+          </div>
+
+          <p class="finding-text">
+            El funnel declarado tiene
+            <strong>
+              tres inconsistencias matemáticas verificables
+            </strong>
+            : la CVR del 3% no produce 800 leads desde 15.500 usuarios; el cascade de porcentajes no produce 20 ventas sino 3–4; y el CPC de Meta a $3.500 ARS hace imposible llegar a 15.500 usuarios con el presupuesto total.
+          </p>
+
+        </div>
+
+        <div class="finding-card">
+
+          <div class="finding-num">
+            Hallazgo 02
+          </div>
+
+          <p class="finding-text">
+            El show rate del
+            <strong>
+              20% y el cierre del 5%
+            </strong>
+            son los indicadores más críticos si los datos son correctos — muy por debajo del benchmark B2B consultivo (40–60% y 20–30% respectivamente). El problema central no es el volumen de tráfico: es lo que le pasa al lead una vez que entra al proceso comercial.
+          </p>
+
+        </div>
+
+        <div class="finding-card">
+
+          <div class="finding-num">
+            Hallazgo 03
+          </div>
+
+          <p class="finding-text">
+            El
+            <strong>
+              CAC real en medios es ~$725.000 ARS
+            </strong>
+            (USD 500 × $1.450), no el $1.000.000 ARS declarado — la diferencia son costos operativos, y esa es la forma correcta de calcularlo. El problema es que el margen bruto del 16,7% sobre el ticket deja muy poco espacio antes de llegar a pérdida. La ecuación CAC/LTV debe resolverse antes de escalar.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- ─── LO QUE NO SABEMOS ─── -->
+
+      <div class="incons-label" style="margin-top:44px;">
+        Lo que no podemos saber sin auditar
+        <span>
+          — incógnitas que bloquean cualquier decisión
+        </span>
+      </div>
+
+      <div class="unknowns-list">
+
+        <div class="unknown-row">
+
+          <div class="unknown-icon">
+            ◻
+          </div>
+
+          <div class="unknown-row-text">
+
+            <strong>
+              Distribución real del presupuesto
+            </strong>
+
+            <span>
+              No sé cuánto va a Meta y cuánto a Google. Con CPC 9,6x más caro en Meta, la lógica de inversión no se puede justificar con los datos actuales.
+            </span>
+
+          </div>
+
+        </div>
+
+        <div class="unknown-row">
+
+          <div class="unknown-icon">
+            ◻
+          </div>
+
+          <div class="unknown-row-text">
+
+            <strong>
+              Fuente del tráfico declarado
+            </strong>
+
+            <span>
+              No sé si los 15.500 "usuarios" son sesiones web (GA4), interacciones con formularios nativos de plataforma, o una mezcla sin separar. Eso cambia radicalmente la CVR real.
+            </span>
+
+          </div>
+
+        </div>
+
+        <div class="unknown-row">
+
+          <div class="unknown-icon">
+            ◻
+          </div>
+
+          <div class="unknown-row-text">
+
+            <strong>
+              Estructura actual de campañas
+            </strong>
+
+            <span>
+              No vi la arquitectura de ninguna cuenta. No sé qué tipos de campaña están activas, cómo están organizados los ad sets, ni qué señal de conversión están optimizando.
+            </span>
+
+          </div>
+
+        </div>
+
+        <div class="unknown-row">
+
+          <div class="unknown-icon">
+            ◻
+          </div>
+
+          <div class="unknown-row-text">
+
+            <strong>
+              Criterio de lead "calificado"
+            </strong>
+
+            <span>
+              No hay una definición explícita en el PDF. Sin ese conocimiento, el 55% es solo un número. No se puede mejorar lo que no conozco.
+            </span>
+
+          </div>
+
+        </div>
+
+        <div class="unknown-row">
+
+          <div class="unknown-icon">
+            ◻
+          </div>
+
+          <div class="unknown-row-text">
+
+            <strong>
+              CPC real vs. CPC declarado
+            </strong>
+
+            <span>
+              Los $3.500 ARS de Meta pueden ser CPM mal etiquetado, un promedio que mezcla tipos de campaña muy distintos, o simplemente un dato equivocado. No puedo saberlo sin ver la cuenta.
+            </span>
+
+          </div>
+
+        </div>
+
+        <div class="unknown-row">
+
+          <div class="unknown-icon">
+            ◻
+          </div>
+
+          <div class="unknown-row-text">
+
+            <strong>
+              Naturaleza del ticket de $1.200.000 ARS
+            </strong>
+
+            <span>
+              ¿Pago único, por proyecto o pago recurrente mensual? Sin saber eso, el LTV y el CAC admisible son incalculables. El análisis de rentabilidad entero depende de esta respuesta.
+            </span>
+
+          </div>
+
+        </div>
+
+        <div class="unknown-row">
+
+          <div class="unknown-icon">
+            ◻
+          </div>
+
+          <div class="unknown-row-text">
+
+            <strong>
+              Proceso comercial y tiempos de respuesta
+            </strong>
+
+            <span>
+              No sé el tiempo entre la captura del lead y el primer contacto. Contactar en 5 minutos vs. 24 horas tiene impacto documentado y medible en el show rate.
+            </span>
+
+          </div>
+
+        </div>
+
+        <div class="unknown-row">
+
+          <div class="unknown-icon">
+            ◻
+          </div>
+
+          <div class="unknown-row-text">
+
+            <strong>
+              Secuencias de nurturing activas
+            </strong>
+
+            <span>
+              No sé si existe algún flujo automatizado entre la captura y la reunión. La brecha educativa entre el lead que llena un formulario y el que decide comprar consultoría B2B no se cierra sola.
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ─── AUDITORÍA REQUERIDA ─── -->
+
+      <div class="incons-label" style="margin-top:44px; color:var(--danger);">
+        Auditoría requerida antes de cualquier acción
+        <span>
+          — excluyente
+        </span>
+      </div>
+
+      <div class="audit-slider" id="auditSlider">
+
+        <div class="audit-slider-overflow">
+
+          <div class="audit-track" id="auditTrack">
+
+            <div class="audit-slide">
+
+              <div class="audit-category">
+
+                <div class="audit-cat-header">
+
+                  <div class="audit-cat-label">
+                    01 / 06 — Plataformas de advertising
+                  </div>
+
+                  <div class="audit-cat-title">
+                    Meta Ads + Google Ads
+                  </div>
+
+                </div>
+
+                <div class="audit-items">
+
+                  <div class="audit-item">
+                    <strong>
+                      Cuenta de Meta Ads
+                    </strong>
+                    — estructura de campañas, objetivos activos, señal de conversión, presupuesto por campaña, CPM/CPC real
+                  </div>
+
+                  <div class="audit-item">
+                    <strong>
+                      Cuenta de Google Ads
+                    </strong>
+                    — tipos de campaña activos (Search, PMax, Display), keywords, CPC por tipo, distribución de presupuesto real
+                  </div>
+
+                  <div class="audit-item">
+                    <strong>
+                      Separación de tipos de campaña
+                    </strong>
+                    — PMax y Search mezclados contaminan el CPC promedio y ocultan el performance real de cada canal
+                  </div>
+
+                  <div class="audit-item">
+                    <strong>
+                      Keywords negativas
+                    </strong>
+                    — sin lista exhaustiva, Google captura tráfico irrelevante y el CPC promedio pierde significado
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="audit-slide">
+
+              <div class="audit-category">
+
+                <div class="audit-cat-header">
+
+                  <div class="audit-cat-label">
+                    02 / 06 — Medición y tracking
+                  </div>
+
+                  <div class="audit-cat-title">
+                    GA4 + GTM + Pixel
+                  </div>
+
+                </div>
+
+                <div class="audit-items">
+
+                  <div class="audit-item">
+                    <strong>
+                      GA4
+                    </strong>
+                    — configuración de eventos, definición de conversiones, integración con Google Ads, fuentes de tráfico correctamente atribuidas
+                  </div>
+
+                  <div class="audit-item">
+                    <strong>
+                      Google Tag Manager (web)
+                    </strong>
+                    — tags activos, disparadores, variables de capa de datos, posibles duplicaciones de eventos
+                  </div>
+
+                  <div class="audit-item">
+                    <strong>
+                      Meta Pixel (web)
+                    </strong>
+                    — implementación correcta, eventos estándar vs. personalizados, calidad de señal, deduplicación vs. CAPI
+                  </div>
+
+                  <div class="audit-item">
+                    <strong>
+                      Fuentes del tráfico declarado
+                    </strong>
+                    — ¿sessions de GA4, pageviews, o interacciones con formularios nativos de plataforma? La base cambia todo el análisis de CVR
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="audit-slide">
+
+              <div class="audit-category">
+
+                <div class="audit-cat-header">
+
+                  <div class="audit-cat-label">
+                    03 / 06 — Datos de conversión
+                  </div>
+
+                  <div class="audit-cat-title">
+                    CAPI + Server-side GTM + Eventos
+                  </div>
+
+                </div>
+
+                <div class="audit-items">
+
+                  <div class="audit-item">
+                    <strong>
+                      Meta Conversions API (CAPI)
+                    </strong>
+                    — ¿está implementada? ¿qué eventos envía? ¿el action_source es correcto (web vs. crm)?
+                  </div>
+
+                  <div class="audit-item">
+                    <strong>
+                      Server-side GTM
+                    </strong>
+                    — ¿existe un contenedor sGTM activo? ¿está procesando y hasheando datos antes de enviar a Meta?
+                  </div>
+
+                  <div class="audit-item">
+                    <strong>
+                      Datos enriquecidos de eventos
+                    </strong>
+                    — ¿los eventos incluyen email, teléfono, nombre hasheados para mejorar el match rate con Meta?
+                  </div>
+
+                  <div class="audit-item">
+                    <strong>
+                      Deduplicación Pixel / CAPI
+                    </strong>
+                    — sin deduplicación correcta, Meta recibe cada evento dos veces y el algoritmo aprende sobre datos inflados
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="audit-slide">
+
+              <div class="audit-category">
+
+                <div class="audit-cat-header">
+
+                  <div class="audit-cat-label">
+                    04 / 06 — CRM y ciclo de vida del lead
+                  </div>
+
+                  <div class="audit-cat-title">
+                    CRM + Webhooks + Lead Scoring
+                  </div>
+
+                </div>
+
+                <div class="audit-items">
+
+                  <div class="audit-item">
+                    <strong>
+                      CRM activo y pipeline
+                    </strong>
+                    — ¿existe? ¿los stages del pipeline reflejan el funnel real? ¿los cambios de estado se registran automáticamente o a mano?
+                  </div>
+
+                  <div class="audit-item">
+                    <strong>
+                      Webhook de cambio de estado del lead
+                    </strong>
+                    — cuando un lead pasa de "contactado" a "reunión" a "cerrado", ¿esa señal llega a Meta/Google como conversión offline?
+                  </div>
+
+                  <div class="audit-item">
+                    <strong>
+                      Lead scoring
+                    </strong>
+                    — ¿existe algún criterio explícito de calificación (BANT, ICP)? Sin él, el 55% calificado es arbitrario e irreproducible
+                  </div>
+
+                  <div class="audit-item">
+                    <strong>
+                      Tiempo de primer contacto
+                    </strong>
+                    — ¿cuánto tarda el equipo en contactar un lead desde que entra? ¿hay SLA definido? Impacto directo en show rate
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="audit-slide">
+
+              <div class="audit-category">
+
+                <div class="audit-cat-header">
+
+                  <div class="audit-cat-label">
+                    05 / 06 — Activos y proceso comercial
+                  </div>
+
+                  <div class="audit-cat-title">
+                    Landing + Creativos + Comercial
+                  </div>
+
+                </div>
+
+                <div class="audit-items">
+
+                  <div class="audit-item">
+                    <strong>
+                      Landing pages activas
+                    </strong>
+                    — ¿hay landing pages dedicadas por campaña o solo el sitio web? ¿tienen formulario propio o redirigen al sitio? ¿el tráfico se mezcla?
+                  </div>
+
+                  <div class="audit-item">
+                    <strong>
+                      Formularios de captura
+                    </strong>
+                    — ¿son formularios nativos de plataforma (Lead Ads, Lead Form Extensions) o formularios web? La mezcla sin separar rompe la atribución
+                  </div>
+
+                  <div class="audit-item">
+                    <strong>
+                      Creativos actuales
+                    </strong>
+                    — ¿qué ángulos, formatos y copies están activos? No se puede proponer cambiar la estrategia creativa sin saber qué se está usando hoy
+                  </div>
+
+                  <div class="audit-item">
+                    <strong>
+                      Proceso comercial post-lead
+                    </strong>
+                    — secuencias de contacto, scripts, materiales de venta, seguimiento post-reunión. El show rate del 20% y el cierre del 5% tienen causas aquí
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="audit-slide">
+
+              <div class="audit-category">
+
+                <div class="audit-cat-header">
+
+                  <div class="audit-cat-label">
+                    06 / 06 — Economía del negocio
+                  </div>
+
+                  <div class="audit-cat-title">
+                    LTV + CAC + Retención
+                  </div>
+
+                </div>
+
+                <div class="audit-items">
+
+                  <div class="audit-item">
+                    <strong>
+                      Naturaleza del ticket
+                    </strong>
+                    — ¿pago único, proyecto acotado o retainer mensual? El LTV y el CAC admisible cambian completamente según la respuesta
+                  </div>
+
+                  <div class="audit-item">
+                    <strong>
+                      Tasa de retención y upsell
+                    </strong>
+                    — ¿cuántos clientes renuevan o amplían el servicio? Un cliente recurrente transforma el análisis de CAC/LTV radicalmente
+                  </div>
+
+                  <div class="audit-item">
+                    <strong>
+                      Margen operativo real
+                    </strong>
+                    — el margen bruto del 16,7% sobre ticket asume costos operativos de $275.000 ARS/venta. ¿Es ese número correcto? ¿Qué incluye?
+                  </div>
+
+                  <div class="audit-item">
+                    <strong>
+                      CAC objetivo por canal
+                    </strong>
+                    — sin LTV definido, no existe un CAC objetivo claro. Sin CAC objetivo, no existe un benchmark para evaluar si una campaña es eficiente o no
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+          <!-- /audit-track -->
+
+        </div>
+        <!-- /audit-slider-overflow -->
+
+        <div class="audit-nav">
+
+          <button class="audit-nav-btn" id="auditPrev" disabled aria-label="Anterior">
+
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+          </button>
+
+          <div class="audit-nav-center">
+
+            <div class="audit-dots" id="auditDots">
+
+              <div class="audit-dot active">
+              </div>
+
+              <div class="audit-dot">
+              </div>
+
+              <div class="audit-dot">
+              </div>
+
+              <div class="audit-dot">
+              </div>
+
+              <div class="audit-dot">
+              </div>
+
+              <div class="audit-dot">
+              </div>
+
+            </div>
+
+            <span class="audit-counter" id="auditCounter">
+              01 / 06
+            </span>
+
+          </div>
+
+          <button class="audit-nav-btn" id="auditNext" aria-label="Siguiente">
+
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M5 2L10 7L5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+          </button>
+
+        </div>
+
+      </div>
+      <!-- /audit-slider -->
+
+      <!-- ─── CONCLUSIÓN FINAL ─── -->
+
+      <div class="conclusions-final-box">
+
+        <div class="cfb-inner">
+
+          <div class="cfb-label">
+            Veredicto profesional
+          </div>
+
+          <h3 class="cfb-heading">
+            El mayor problema que encuentro, no es el canal, ni el creativo, ni el presupuesto. Tenemos inconsistencias de datos que nos impiden llegar al correcto análisis.
+          </h3>
+
+          <p class="cfb-body">
+            Los datos presentados contienen inconsistencias matemáticas que impiden saber con certeza dónde están los cuellos de botella reales. El funnel no está correctamente definido: las métricas no tienen fuentes claras, los porcentajes no tienen denominadores explícitos, y los CPCs declarados son incompatibles con el tráfico reportado.
+          </p>
+
+          <p class="cfb-body">
+            El enfoque correcto es
+            <em>
+              primero auditar, después proponer
+            </em>
+            . Eso implica revisar las seis capas del ecosistema completo: las cuentas de advertising, el stack de medición, los datos de conversión, el CRM y los ciclos de vida del lead, los activos de campaña y la economía real del negocio.
+            <strong>
+              Ninguna de esas capas puede quedar sin revisar antes de tomar una decisión de inversión.
+            </strong>
+          </p>
+
+          <p class="cfb-body">
+            Lo que intento demostrar en este documento es que la pregunta "¿cómo mejoro mis campañas?" tiene una respuesta previa:
+            <strong>
+              "¿Qué están midiendo realmente esas campañas?"
+            </strong>
+            Hasta tener esa respuesta, cualquier optimización — de presupuesto, de creativos, de estructura o de proceso comercial — es acrecentar el problema.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════
+     CIERRE
+══════════════════════════════════════ -->
+
+    <div class="cta-section">
+
+      <h2 class="cta-title">
+        Growth marketing
+        <br>
+        basado en
+        <span>
+          datos reales
+        </span>
+      </h2>
+
+      <p class="cta-sub">
+        Como especialista en performance marketing, tomar decisiones sobre datos inconsistentes y/o que no se auditaron, hace imposible tomar decisiones informadas. Medir bien antes de actuar es lo que hace que cada peso invertido vaya en la dirección correcta.
+      </p>
+
+      <div class="cta-items">
+
+        <div class="cta-item">
+          Auditoría antes de acción
+        </div>
+
+        <div class="cta-item">
+          Señales de conversión reales
+        </div>
+
+        <div class="cta-item">
+          Tests con hipótesis claras
+        </div>
+
+        <div class="cta-item">
+          CAC que cierre con el negocio
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+
+  <script>
+    
+      // Audit Slider Script
+      const auditSlider = () => {
+        const track = document.getElementById('auditTrack');
+        const slides = document.querySelectorAll('.audit-slide');
+        const prevBtn = document.getElementById('auditPrev');
+        const nextBtn = document.getElementById('auditNext');
+        const dots = document.querySelectorAll('.audit-dot');
+        const counter = document.getElementById('auditCounter');
+        
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+        
+        // Determine slides per view based on screen width
+        const getSlidesPerView = () => {
+          if (window.innerWidth <= 600) return 1;
+          if (window.innerWidth <= 900) return 2;
+          return 3;
+        };
+        
+        const updateSlider = () => {
+          const slidesPerView = getSlidesPerView();
+          const slideWidth = 100 / slidesPerView;
+          const translateX = currentIndex * slideWidth;
+          
+          track.style.transform = `translateX(-${translateX}%)`;
+          
+          // Update dots and counter
+          dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+          });
+          
+          const currentDisplay = String(currentIndex + 1).padStart(2, '0');
+          const totalDisplay = String(totalSlides).padStart(2, '0');
+          counter.textContent = `${currentDisplay} / ${totalDisplay}`;
+          
+          // Update button states
+          prevBtn.disabled = currentIndex === 0;
+          nextBtn.disabled = currentIndex >= totalSlides - slidesPerView;
+        };
+        
+        const goToSlide = (index) => {
+          const slidesPerView = getSlidesPerView();
+          const maxIndex = Math.max(0, totalSlides - slidesPerView);
+          currentIndex = Math.min(Math.max(index, 0), maxIndex);
+          updateSlider();
+        };
+        
+        // Event listeners
+        prevBtn.addEventListener('click', () => {
+          goToSlide(currentIndex - 1);
+        });
+        
+        nextBtn.addEventListener('click', () => {
+          goToSlide(currentIndex + 1);
+        });
+        
+        dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => {
+            goToSlide(index);
+          });
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+          updateSlider();
+        });
+        
+        // Initial update
+        updateSlider();
+      };
+      
+      // Initialize slider when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', auditSlider);
+      } else {
+        auditSlider();
+      }
+  </script>
+
+</html>

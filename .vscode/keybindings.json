@@ -1,0 +1,32 @@
+[
+  {
+    "key": "ctrl+alt+c",
+    "command": "editor.action.insertSnippet",
+    "args": { "snippet": "[CÓDIGO] $0" },
+    "when": "chatFocus"
+  },
+  {
+    "key": "ctrl+alt+f",
+    "command": "editor.action.insertSnippet",
+    "args": { "snippet": "[FIX] $0" },
+    "when": "chatFocus"
+  },
+  {
+    "key": "ctrl+alt+q",
+    "command": "editor.action.insertSnippet",
+    "args": { "snippet": "[RAPIDO] $0" },
+    "when": "chatFocus"
+  },
+  {
+    "key": "ctrl+alt+s",
+    "command": "editor.action.insertSnippet",
+    "args": { "snippet": "[CONCISO] $0" },
+    "when": "chatFocus"
+  },
+  {
+    "key": "ctrl+alt+e",
+    "command": "editor.action.insertSnippet",
+    "args": { "snippet": "[EXPLICAR] $0" },
+    "when": "chatFocus"
+  }
+]
